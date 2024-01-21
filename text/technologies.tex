@@ -1,22 +1,39 @@
 %! Author = Vojta
-%! Date = 21.10.2021
+%! Date = 21.1.2024
 
 \chapter{Technologie}
 \label{chap:technologie}
 
-\subsection{Body pro technologie}
-\begin{itemize}
-    \item Vue
-    \subitem Vue 2 vs 3
-    \subitem script setup
-    \subitem Options vs Composition API
-    \subitem Vue Router
-    \subitem Pinia
-    \item TypeScript
-    \item UI Knihovna
-    \subitem https://vuesax.com/
-    \subitem https://quasar.dev/
-    \subitem http://iview.talkingdata.com/
-    \subitem https://element.eleme.io/
-    \subitem https://vuetifyjs.com/
-\end{itemize}
+\section{Nuxt}
+Nuxt je moderní a výkonný open-source framework založený na Vue, který je navržen pro intuitivní a efektivní vývoj webových aplikací a stránek.
+Tento framework se vyznačuje tím, že automaticky řeší mnoho opakujících se úkolů vývojářů, což jim umožňuje soustředit se na tvorbu samotné aplikace.
+Nuxt využívá konvence a strukturované adresářové uspořádání pro automatizaci procesu vývoje a nabízí možnost vlastní konfigurace a přizpůsobení výchozích chování.
+
+Nuxt má narozdíl od čistého Vue schopnosti server-side renderingu (SSR). Tato funkce zajišťuje rychlejší načítání stránek a lepší SEO optimalizaci,
+protože celý obsah stránky je serverem vygenerován dříve, než začne běžet klientský JavaScript. Nuxt tento přístup kombinuje v takzvaném hybrid renderingu a má
+tedy výhody tradičního server-side renderingu s interaktivitou a pokročilými uživatelskými rozhraními single-page aplikací (SPA). \cite{NuxtRenderingModes}
+
+\section{Tailwind}
+Tailwind je moderní a oblíbený CSS framework, který se zaměřuje na tzv. utility-first přístup. Tento přístup umožňuje vývojářům rychle a efektivně vytvářet
+vlastní komponenty a designy s použitím nízkoúrovňových CSS tříd, které jsou přímo integrovány do HTML markupu.
+
+Jednou z hlavních výhod Tailwind je možnost psát méně vlastního CSS. Vývojáři mohou využívat předdefinované třídy, jako jsou flexbox a padding utility, což znamená,
+že většina stylů je opakovaně použitelná a zřídka je potřeba psát nové CSS. Tailwind také eliminuje potřebu vymýšlet názvy tříd, protože vývojáři vybírají třídy z
+předdefinovaného designového systému. To znamená, že nemusí přemýšlet o "dokonalých" názvech tříd pro určité styly a komponenty nebo si pamatovat složité názvy. \cite{TailwindUtilityFirst}
+
+Tailwind je známý svou flexibilitou a kontrolou nad tím, jak aplikace vypadá, což poskytuje větší prostor pro vytváření jedinečných webů. Na rozdíl od jiných CSS frameworků,
+jako je Bootstrap nebo Materialize, Tailwind nenabízí plně stylované komponenty, jako jsou tlačítka nebo dropdown menu. Místo toho nabízí užitečnostní třídy,
+které umožňují vytvořit vlastní opakovaně použitelné komponenty.
+
+Přestože Tailwind nabízí mnoho výhod, může být jeho použití obtížné pro ty, kteří nejsou zkušení s CSS, a může způsobovat zmatek kvůli množství informací uložených v HTML souboru.
+Navíc při instalaci Tailwindu jsou výchozí CSS styly odstraněny, takže je nutné je pro všechny elementy znovu vytvořit.
+
+% \subsection{Body pro technologie}
+% \begin{itemize}
+%     \item Vue
+%     \subitem Vue 3
+%     \subitem script setup
+%     \subitem Options vs Composition API
+%     \item Nuxt
+%     \item HeadlessUI
+% \end{itemize}

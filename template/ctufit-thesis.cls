@@ -75,12 +75,12 @@
  \definecolor{enumgray}{RGB}{0, 122, 195} %CTU blue
 
 % black version
- %\definecolor{decoration}{RGB}{0, 0, 0} %CTU blue
- %\definecolor{heading}{RGB}{0, 122, 195}
- %\definecolor{headbackgroundgray}{RGB}{211,211,211} %light blue
-  \definecolor{backgroundgray}{RGB}{211,211,211} %CTU light blue
- %\definecolor{headgray}{rgb}{0.50,0.50,0.51}
- %\definecolor{enumgray}{RGB}{0, 0, 0} %CTU blue
+% \definecolor{decoration}{RGB}{0, 0, 0} %CTU blue
+% \definecolor{heading}{RGB}{0, 0, 0}
+% \definecolor{headbackgroundgray}{RGB}{180, 180, 180} %light blue
+% \definecolor{backgroundgray}{RGB}{180, 180, 180} %CTU light blue
+% \definecolor{headgray}{rgb}{0.50,0.50,0.51}
+% \definecolor{enumgray}{RGB}{0, 0, 0} %CTU blue
 % colors end
 
 \DeclareRobustCommand{\ctufittitle}[1]{
@@ -137,7 +137,7 @@
 
 \DeclareRobustCommand{\thectufituniversity}{\if\@ctufitlang C{{\v C}esk{\' e} vysok{\' e} u{\v c}en{\' i} technick{\' e} v~Praze}\else\if\@ctufitlang S{{\v C}esk{\' e} vysok{\' e} u{\v c}en{\' i} technick{\' e} v~Praze}\else{Czech Technical University in Prague}\fi\fi}
 
-\DeclareRobustCommand{\thectufitfaculty}{\if\@ctufitlang C{Fakulta informa{\v c}n{\' i}ch technologi{\' i}}\else\if\@ctufitlang S{Fakulta informa{\v c}n{\' i}ch technologi{\' i}}\else{Faculty of Information Technology}\fi\fi}
+\DeclareRobustCommand{\thectufitfaculty}{\if\@ctufitlang C{Fakulta elektrotechnick{\' a}}\else\if\@ctufitlang S{Fakulta elektrotechnick{\' a}}\else{Faculty of Electrical Engineering}\fi\fi}
 
 \DeclareRobustCommand{\thectufitsupervisorlabelcapital}{\if\@ctufitlang C{Vedouc{\' i}}\else\if\@ctufitlang S{Ved\'uci}\else{Supervisor}\fi\fi}
 
@@ -152,7 +152,7 @@
 \DeclareRobustCommand{\thectufitdeclarationlabel}{\if\@ctufitlang C{Prohlášení}\else\if\@ctufitlang E{Declaration}\else{Vyhlásenie}\fi\fi}
 
 
-\DeclareRobustCommand{\thectufitcopyrighttext}{\if\@ctufitlang C{Tato pr{\' a}ce vznikla jako {\v s}koln{\' i} d{\' i}lo na {\v C}esk{\' e}m vysok{\' e}m u{\v c}en{\' i} technick{\' e}m v~Praze, Fakult{\v e} informa{\v c}n{\' i}ch technologi{\' i}. Pr{\' a}ce je chr{\' a}n{\v e}na pr{\' a}vn{\' i}mi p{\v r}edpisy a mezin{\' a}rodn{\' i}mi {\' u}mluvami o~pr{\' a}vu autorsk{\' e}m a pr{\' a}vech souvisej{\' i}c{\' i}ch s~pr{\' a}vem autorsk{\' y}m. K~jej\'\i{}mu u\v zit\'\i{}, s~v\'yjimkou bez\'uplatn\'ych z\'akonn\'ych licenc\'\i{} a nad r\'amec opr\'avn\v en\'\i{} uveden\'ych v~Prohl\'a\v sen\'\i{} na p\v redchoz\'\i{} stran\v e, je nezbytn\'y souhlas autora.}\else\if\@ctufitlang S{T\'ato pr\'aca vznikla ako \v skolsk\'e dielo na  FIT \v CVUT v Prahe. Pr\'aca je chr\'anen\'a medzin\'arodn\'ymi predpismi a zmluvami o autorskom pr\'ave a pr\'avach s\'uvisiacich s autorsk\'ym pr\'avom. Na jej vyu\v zitie, s~v\'ynimkou bezplatn\'ych z\'akonn\'ych licenci\'\i, je nutn\'y s\'uhlas autora.}\else{This thesis is school work as defined by Copyright Act of the Czech Republic. It has been submitted at Czech Technical University in Prague, Faculty of Information Technology. The thesis is protected by the Copyright Act and its usage without author's permission is prohibited (with exceptions defined by the Copyright Act).}\fi\fi}
+\DeclareRobustCommand{\thectufitcopyrighttext}{\if\@ctufitlang C{Tato pr{\' a}ce vznikla jako {\v s}koln{\' i} d{\' i}lo na {\v C}esk{\' e}m vysok{\' e}m u{\v c}en{\' i} technick{\' e}m v~Praze, Fakult{\v e} elektrotechnick{\' e}. Pr{\' a}ce je chr{\' a}n{\v e}na pr{\' a}vn{\' i}mi p{\v r}edpisy a mezin{\' a}rodn{\' i}mi {\' u}mluvami o~pr{\' a}vu autorsk{\' e}m a pr{\' a}vech souvisej{\' i}c{\' i}ch s~pr{\' a}vem autorsk{\' y}m. K~jej\'\i{}mu u\v zit\'\i{}, s~v\'yjimkou bez\'uplatn\'ych z\'akonn\'ych licenc\'\i{} a nad r\'amec opr\'avn\v en\'\i{} uveden\'ych v~Prohl\'a\v sen\'\i{} na p\v redchoz\'\i{} stran\v e, je nezbytn\'y souhlas autora.}\else\if\@ctufitlang S{T\'ato pr\'aca vznikla ako \v skolsk\'e dielo na  FIT \v CVUT v Prahe. Pr\'aca je chr\'anen\'a medzin\'arodn\'ymi predpismi a zmluvami o autorskom pr\'ave a pr\'avach s\'uvisiacich s autorsk\'ym pr\'avom. Na jej vyu\v zitie, s~v\'ynimkou bezplatn\'ych z\'akonn\'ych licenci\'\i, je nutn\'y s\'uhlas autora.}\else{This thesis is school work as defined by Copyright Act of the Czech Republic. It has been submitted at Czech Technical University in Prague, Faculty of Electrical Engineering. The thesis is protected by the Copyright Act and its usage without author's permission is prohibited (with exceptions defined by the Copyright Act).}\fi\fi}
 
 % title page
 \renewcommand{\maketitle}{\begin{titlepage}%
@@ -488,8 +488,8 @@
         \AtBeginEnvironment {minted} { \singlespacing \fontsize{11}{11} \selectfont }
 		\DeclareRobustCommand{\listingscaption}{\thectufitlistinglabel}%
 		\DeclareRobustCommand{\listoflistingscaption}{\thectufitlollabel}%
-		\usemintedstyle{vs}%
-		\setminted{bgcolor={}, frame=lines, linenos, breaklines, framesep=2mm}%
+		\usemintedstyle{manni}%
+		\setminted{bgcolor={}, frame=leftline, linenos, breaklines, framesep=2mm}%
 		\setmintedinline{bgcolor={}}
 	}{}%
 }

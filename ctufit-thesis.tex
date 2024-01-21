@@ -34,24 +34,24 @@
 % language: czech/english/slovak
 % thesis type: bachelor/master/dissertation
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[czech,bachelor,unicode]{template/ctufit-thesis}
+\documentclass[czech,master,unicode]{template/ctufit-thesis}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FILL IN THIS INFORMATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\ctufittitle{Webová aplikace pro výuku programovacích jazyků} % replace with the title of your thesis
+\ctufittitle{Sbírka znovupoužitelných Vue komponent} % replace with the title of your thesis
 \ctufitauthorfull{Bc.\,Vojtěch Moravec} % replace with your full name (first name(s) and then family name(s) / surname(s)) including academic degrees
 \ctufitauthorsurnames{Moravec} % replace with your surname(s) / family name(s)
 \ctufitauthorgivennames{Vojtěch} % replace with your first name(s) / given name(s)
 \ctufitsupervisor{Ing.\,Oldřich Malec} % replace with name of your supervisor/advisor (include academic degrees)
-\ctufitdepartment{Katedra softwarového inženýrství} % replace with the department of your defence
+\ctufitdepartment{Katedra počítačové grafiky a interakce} % replace with the department of your defence
 \ctufityear{2024} % replace with the year of your defence
 \ctufitdeclarationplace{Praze} % replace with the place where you sign the declaration
 \ctufitdeclarationdate{\today} % replace with the date of signature of the declaration
 \ctufitabstractCZE{\input{text/abstract-cze}}
 \ctufitabstractENG{\input{text/abstract-en}}
-\ctufitkeywordsCZE{frontend, Vue, Vuetify, recepty na vaření, webová aplikace, serverless, Firebase} % TODO
-\ctufitkeywordsENG{frontend, Vue, Vuetify, cooking recipes, web app, serverless, Firebase} % TODO
+\ctufitkeywordsCZE{UI, UX, DX, Nuxt, Vue, komponenty, sbírka komponent, znovupoužitelnost} % TODO
+\ctufitkeywordsENG{UI, UX, DX, Nuxt, Vue, components, collection of components, reusable} % TODO
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END FILL IN
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -97,7 +97,7 @@
 %\usepackage{listings} % typesetting of sources
 \usepackage{minted}
 \usepackage{graphicx} % typesetting of sources
-\usepackage[allfiguresdraft]{draftfigure} % TODO: Comment this line to get images rendered
+% \usepackage[allfiguresdraft]{draftfigure} % TODO: Comment this line to get images rendered
 \usepackage{subfig}
 \usepackage{tabularx}
 \usepackage{xevlna}		% for non-breakable whitespaces
@@ -133,7 +133,8 @@
 \begin{document}
 \frontmatter\frontmatterinit % do not remove these two commands
 
-\includepdf{pdf/assignment-include.pdf} % replace that file with your thesis assignment provided by study office
+% TODO: Uncomment this part in final version
+% \includepdf{pdf/assignment-include.pdf} % replace that file with your thesis assignment provided by study office
 
 \thispagestyle{empty}\cleardoublepage\maketitle % do not remove these three commands
 
@@ -160,11 +161,12 @@
 % FILL IN / MODIFY
 % This is a place to thank people for helping you. It is common to thank your supervisor.
 %%%%%%%%%%%%%%%%%%%
-\begin{acknowledgmentpage}
-	Chtěl bych poděkovat především vedoucímu této práce Ing.~Oldřichu~Malcovi za odborné vedení mé práce, za jeho čas a cenné rady.
-    Dále bych chtěl poděkovat všem respondentům, kteří mi pomohli získat přehled o potřebách uživatelů. V neposlední řadě patří obrovské
-    poděkování mé rodině, díky které jsem mohl studovat bez jakýchkoliv problémů.
-\end{acknowledgmentpage}
+% TODO: Uncomment this part in final version
+% \begin{acknowledgmentpage}
+% 	Chtěl bych poděkovat především vedoucímu této práce Ing.~Oldřichu~Malcovi za odborné vedení mé práce, za jeho čas a cenné rady.
+%     Dále bych chtěl poděkovat všem respondentům, kteří mi pomohli získat přehled o potřebách uživatelů. V neposlední řadě patří obrovské
+%     poděkování mé rodině, díky které jsem mohl studovat bez jakýchkoliv problémů.
+% \end{acknowledgmentpage}
 %%%%%%%%%%%%%%%%%%%
 % ACKNOWLEDGMENT END
 %%%%%%%%%%%%%%%%%%%
@@ -256,10 +258,11 @@
 % MODIFY ANYTHING BELOW THIS LINE
 %%%%%%%%%%%%%%%%%%%
 
+% \include{text/examples}
 \include{text/introduction}
 \include{text/analysis}
 \include{text/technologies}
-\include{text/design}
+% \include{text/design}
 \include{text/implementation}
 \include{text/testing}
 \include{text/future-improvements}
@@ -275,6 +278,7 @@
 
 \printbibliography[title = {Zdroje}] % print out the BibLaTeX-generated bibliography list
 
-\include{text/medium} % include `medium.tex' from `text/' subdirectory
+% TODO: Uncomment this part in final version
+% \include{text/medium} % include `medium.tex' from `text/' subdirectory
 
 \end{document}

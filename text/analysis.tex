@@ -1,24 +1,117 @@
-%! Author = vojmo
-%! Date = 29.01.2022
+%! Author = Vojta
+%! Date = 21.1.2024
 
 \chapter{Analýza}
 
-\subsection{Body pro analýzu}
+\section{Kvalitativní průzkum}
+Vzhledem k tomu, že se jedná o projekt, který je určený hlavně pro využití autora, není kvalitatní průzkum příliš relevantní.
+Místo toho se práce zaměřuje na porovnání existujících řešení, jejich výhod a nevýhod a názorů komunity.
+Nicméně v jedné z následujících kapitol jsou výsledky z testování a výčet následných úprav.
+
+\section{Existující řešení}
+
+Existující řešení lze rozdělit do dvou skupin. První skupinou jsou knihovny, které nabízejí sadu komponent jako balíček, který
+se do projektu přidá jako závislost. Poté se komponenty importují a používají v kódu. Jejich stylování lze upravit, ale většinou
+pouze pomocí předpřipravených proměnných nebo limitovaným rozhraním. Úprava jejich funkcionality je většinou velmi omezená. Jakmile
+chce uživatel upravit větší části, musí přistoupit k ohybání kódu, což často vede k neudržitelnému kódu.
+
+Druhou skupinou jsou knihovny, které nejsou připraveny pro použití jako balíček. Jejich kód je dostupný pro zkopírování do projektu,
+popř. mají dostupné CLI, které umožňuje komponenty přidat pomocí jednoduchého příkazu. Tato skupina míří na lepší znovupoužitelnost kódu
+a zároveň na vyšší možnosti rozšíření a úprav.
+
+\clearpage
+
+\subsection{Knihovny s principem balíčkování}
+
+\subsubsection{NuxtUI}
+Jako zástupce knihoven na principu balíčkování jsem si vybral NuxtUI. Tuto knihovnu jsem využil na několika projektech, takže jsem si
+dokázal udělat představu o jejích výhodách a nevýhodách. Líbilo se mi, že nabízí velké množství komponent, které jsou propracované a hezky
+nastylované. Na druhou stranu jsem se často potýkal s tím, že jsem chtěl upravit funkčnost komponenty, ale nebylo to možné. Většinou jsem
+musel přistoupit k vytvoření ohnutí ruzných částí. Tyto úpravy byly často velmi složité a neudržitelné.
+
 \begin{itemize}
-    \item Existující řešení
-    \subitem AlgoExpert (FrontendExpert)
-    \subitem LeetCode
-    Vyzkoušel jsem se do systému přihlásit a splnit některé z prvních úkolů. Líbilo se mi rozložení, které stránka zvolila,
-    bylo totiž možné jej přeskupovat dle potřeby (měnit velikost jeho částí). LeetCode podporuje více jazyků, které pravděpodobně
-    vyhodnocuje na serveru. V mém návrhu jsem rozdělil obrazovku s úkolem do čtyř částí. Zde jsem ale zjistil, že se mi daleko
-    více líbí pouze dvě/tři části, s tím že ukázkové výstupy jsou přímo v zadání na levé straně (v kombinaci s textem).
-    \subitem Nedatluj % Nevím jestli zmiňovat, vlastně to není řešení zaměřené na stejnou oblast
-    \subitem Marast
-    \subitem Progtest
-    \subitem LearnShell % ? Nefunguje ?
-    \item dspace
-    \subitem https://dspace.cvut.cz/bitstream/handle/10467/87700/F3-BP-2020-Schiller-Patrik-Aplikace\%20pro\%20vyuku\%20programovani\%203D\%20grafiky.pdf?sequence=-1\&isAllowed=y
-    \subitem https://dspace.cvut.cz/bitstream/handle/10467/63148/F8-BP-2015-Hamrla-Lukas-thesis.pdf?sequence=1\&isAllowed=y
-    \item Kvalitativní průzkum
-    \item Průzkum mezi školami
+    \item \textbf{Výhody}
+    \begin{itemize}
+        \item Velké množství komponent
+        \item Propracované styly
+        \item Připravené pro použití
+    \end{itemize}
+    \item \textbf{Nevýhody}
+    \begin{itemize}
+        \item Omezené možnosti úprav
+        \item Složité úpravy stylů
+
+        \item Složité úpravy funkcionality
+    \end{itemize}
 \end{itemize}
+
+\subsection{Knihovny s principem vlastnění kódu}
+Knihovny, kde výsledný kód vlastníte většinou obsahují komponenty, které jsou jednodušší. Jejich výhodou je, že je lze snadno upravit, protože
+kód není schovaný v balíčku. Nevýhodou je, že některé složitejší operace si uživatel musí vytvořit sám. Je tu ale jedna vyjímka, na kterou se chci
+zaměřit, protože na podobném principu chci stavět i svojí kolekci.
+
+% https://www.radix-ui.com/primitives/docs/overview/introduction
+\subsubsection{Radix UI}
+RadixUI představuje open-source knihovnu UI komponent, která je zaměřena na tvorbu kvalitních a přístupných designových systémů a webových aplikací.
+Jde především o Radix Primitives, což jsou nízkoúrovňové UI komponenty s důrazem na přístupnost a možnost úprav vývojářů za cílem vytvoření vlastní knihovny.
+Tyto komponenty lze využívat buď jako základní vrstvu designového systému nebo je postupně implementovat do stávajících projektů. \cite{RadixUIPrimitives}
+
+\subsubsection{shadcn/ui}
+Shadcn/ui je inovativní open-source knihovna UI komponent, která je navržena tak, aby vylepšila webový vývoj, zejména pro projekty využívající React.
+Hlavní předností této knihovny je její lehkost, díky čemuž se snadno integruje do projektů bez nutnosti zatěžujících závislostí. Knihovna staví
+zejména na komponentách Radix UI, které kladou důrat na přístupnost, což zajišťuje, že komponenty jsou inkluzivní a použitelné pro všechny uživatele. \cite{ShadcnUI}
+
+Dalším významným aspektem knihovny Shadcn/ui je integrace s frameworkem Tailwind CSS, který poskytuje efektivní a přívětivé prostředí pro vývojáře,
+preferující tento CSS framework orientovaný na utilitu. Výhody Tailwind CSS jsou popsány v kapitole věnované technologiím. Tato integrace umožňuje snadnou úpravu
+a rozšíření stylů. Shadcn/ui vyniká svou snadnou použitelností a detailní kontrolou nad komponentami. Vývojáři mohou přímo přistupovat ke zdrojovému kódu
+jednotlivých komponent, což umožňuje jejich efektivní úpravy pro specifické případy užití a požadavky aplikace.
+
+Ruční instalace nebo kopírování každé komponenty může být pro některé vývojáře zdlouhavé, zejména pro ty, kteří jsou zvyklí importovat komponenty z balíčků.
+Ačkoli přímý přístup ke kódu komponent prospívá modularitě a rozšiřitelnosti, může vést k rozšíření objemu kódu.
+
+% Headless UI
+
+\begin{itemize}
+    \item \textbf{Výhody}
+    \begin{itemize}
+        \item Jednoduché úpravy
+        \item Kód vlastní uživatel
+        \item Aktualizace knihovny neovlivní kód
+    \end{itemize}
+    \item \textbf{Nevýhody}
+    \begin{itemize}
+        \item Omezená funkcionalita
+        \item Větší objem spravovaného kódu
+    \end{itemize}
+\end{itemize}
+
+
+% \subsection{Knihovny}
+
+% \section{Body pro analýzu}
+
+% \subsection{Existující řešení}
+
+% \begin{itemize}
+%     \item Knihovny
+%     \begin{itemize}
+%         \item NuxtUI
+%     \end{itemize}
+%     \item Princip kopírování kódu
+%     \begin{itemize}
+%         \item Radix UI
+%         \item shadcn/ui
+%         \item TailwindUI
+%         \item HeadlessUI
+%         \item Adobe Spectrum (React Aria)
+%     \end{itemize}
+%     \item CLI
+%     \begin{itemize}
+%         \item Create T3 App
+%         \item VS Code Extension
+%     \end{itemize}
+    
+%     \item dspace
+    
+%     \item Kvalitativní průzkum
+% \end{itemize}

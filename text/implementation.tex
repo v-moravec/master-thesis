@@ -1,10 +1,80 @@
 %! Author = Vojta
-%! Date = 25.11.2021
+%! Date = 21.1.2024
 
 \chapter{Implementace}
 
-\subsection{Body pro implementaci}
-\begin{itemize}
-    \item Založení projektu
-\end{itemize}
+Začal jsem vytvořením projektu pomocí \mintinline{console}|npx nuxi@latest init content-app -t content|. Tento příkaz vytvoří
+projekt s připravený Nuxt Content modulem. Dále jsem přidal potřebné moduly pro vývoj, jako je například Tailwind, Nuxt Icon,
+Nuxt Color Mode a v neposlední řadě Nuxt SEO. Pro větší konzistenci kódu jsem přidal i ESLint a Prettier.
+
+\clearpage
+
+\section{Nastavení Tailwindu}
+
+Nejdříve jsem se potýkal s chybějícími styly. Chtěl jsem to řešit pomocí \emph{safelistu}, ale to mi nepřišlo jako ideální řešení.
+Po chvíli jsem zjistil, že lze specifikovat, které složky má při buildu Tailwind procházet a hledat tak potřebné styly. Tailwind totiž
+využívá tree shakingu, takže výsledný balíček obsahuje pouze styly, které jsou použité. Toto nastavení jsem přidal do \mintinline{js}|tailwind.config.js|.
+Konkrétně se jednalo o řádek 7 v ukázce \ref{lst:tailwind-config}.
+
+\begin{listing}[h]
+    \caption{Konfigurační soubor pro Tailwind}
+    \label{lst:tailwind-config}
+    \begin{minted}{js}
+import type { Config } from 'tailwindcss'
+import typography from '@tailwindcss/typography'
+import containerQueries from '@tailwindcss/container-queries'
+
+export default <Partial<Config>>{
+    darkMode: 'class',
+    content: ['components/**/*.{vue,ts}', 'layouts/**/*.vue', 'pages/**/*.vue'],
+    theme: {
+        extend: {
+            colors: {
+                background: 'hsl(var(--background))',
+                primary: {
+                    DEFAULT: 'hsl(var(--primary))',
+                    contrast: 'hsl(var(--primary-contrast))',
+                },
+                secondary: {
+                    DEFAULT: 'hsl(var(--secondary))',
+                    contrast: 'hsl(var(--secondary-contrast))',
+                },
+                disabled: {
+                    DEFAULT: 'hsl(var(--disabled))',
+                    contrast: 'hsl(var(--disabled-contrast))',
+                },
+                border: 'hsl(var(--border))',
+            },
+            borderRadius: {
+                sm: 'calc(var(--radius) - 4px)',
+                md: 'calc(var(--radius) - 2px)',
+                lg: 'var(--radius)',
+                xl: 'calc(var(--radius) + 4px)',
+                '2xl': 'calc(var(--radius) + 8px)',
+                '3xl': 'calc(var(--radius) + 16px)',
+            },
+        },
+    },
+    plugins: [typography, containerQueries],
+}
+    \end{minted}
+\end{listing}
+
+\section{Zobrazení kódu}
+
+Nuxt Content má zabudovanou možnost zobrazení kódu. \cite{NuxtContentCodeHighlighting} Potřeboval jsem vymyslet, jak zobrazit kód bez jeho duplikace.
+V tom mi pomohl zdrojový kód knihovny NuxtUI. Tato knihovna využívá principu vygenerování endpointů pro zobrazení zdrojového kódu
+přímo ze souborů s komponentami, popřípadě ze souborů s ukázkami použití. \cite{NuxtUISourceCodeModule}
+
+\section{Deploy}
+Dokumentace se automaticky nasadí pomocí Github Actions na Cloudflare Pages. Nastavení je velmi jednoduché, stačí mít účet na Githubu a Cloudflare,
+po vytvoření repozitáře jej spojit s projektem na Clouflare Pages a při každém pushi do větve \mintinline{console}|main| se dokumentace automaticky nasadí.
+
+
+
+% \subsection{Body pro implementaci}
+% \begin{itemize}
+%     \item Dokumentace
+%     \item Komponenty
+% \end{itemize}
 
