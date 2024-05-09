@@ -488,8 +488,8 @@
         \AtBeginEnvironment {minted} { \singlespacing \fontsize{11}{11} \selectfont }
 		\DeclareRobustCommand{\listingscaption}{\thectufitlistinglabel}%
 		\DeclareRobustCommand{\listoflistingscaption}{\thectufitlollabel}%
-		\usemintedstyle{manni}%
-		\setminted{bgcolor={}, frame=leftline, linenos, breaklines, framesep=2mm}%
-		\setmintedinline{bgcolor={}}
+		% \usemintedstyle{manni}%
+		\setminted{bgcolor=headbackgroundgray, autogobble, framesep=5mm}%
+		\setmintedinline{bgcolor=headbackgroundgray, style=bw}
 	}{}%
 }

@@ -25,16 +25,16 @@ Vue je známé svou jednoduchostí a flexibilitou, což z něj činí ideální 
 \subsection{Nuxt}
 Nuxt je moderní a výkonný open-source framework založený na Vue, který je navržen pro intuitivní a efektivní vývoj webových aplikací a stránek. Tento framework se vyznačuje tím, že automaticky řeší mnoho opakujících se úkolů vývojářů, což jim umožňuje soustředit se na tvorbu samotné aplikace. Nuxt využívá konvence a strukturované adresářové uspořádání pro automatizaci procesu vývoje a nabízí možnost vlastní konfigurace a přizpůsobení výchozích chování.
 
-Nuxt má narozdíl od čistého Vue schopnosti server-side renderingu (SSR). Tato funkce zajišťuje rychlejší načítání stránek a lepší SEO optimalizaci, protože celý obsah stránky je serverem vygenerován dříve, než začne běžet klientský Javascript. Nuxt tento přístup kombinuje v takzvaném hybrid renderingu a má tedy výhody tradičního server-side renderingu s interaktivitou a pokročilými uživatelskými rozhraními single-page aplikací (SPA). \cite{NuxtRenderingModes}
+Nuxt má narozdíl od čistého Vue schopnosti server-side renderingu (SSR). Tato funkce zajišťuje rychlejší načítání stránek a lepší SEO, protože celý obsah stránky je serverem vygenerován dříve, než začne běžet klientský Javascript. Nuxt tento přístup kombinuje v takzvaném hybrid renderingu a má tedy výhody tradičního server-side renderingu s interaktivitou a pokročilými uživatelskými rozhraními single-page aplikací (SPA). \cite{NuxtRenderingModes}
 
 \subsection{Tailwind}
-Tailwind je moderní a oblíbený CSS framework, který se zaměřuje na tzv. utility-first přístup. Tento přístup umožňuje vývojářům rychle a efektivně vytvářet vlastní komponenty a designy s použitím nízkoúrovňových CSS tříd, které jsou přímo integrovány do HTML markupu.
+Tailwind je moderní a oblíbený CSS framework \cite{StateOfCSS} \cite{StateOfFrontend}, který se zaměřuje na tzv. utility-first přístup. Tento přístup umožňuje vývojářům rychle a efektivně vytvářet vlastní komponenty a designy s použitím nízkoúrovňových CSS tříd, které jsou přímo integrovány do HTML markupu.
 
-Jednou z hlavních výhod Tailwind je možnost psát méně vlastního CSS. Vývojáři mohou využívat předdefinované třídy, jako jsou flexbox a padding utility, což znamená, že většina stylů je opakovaně použitelná a zřídka je potřeba psát nové CSS. Tailwind také eliminuje potřebu vymýšlet názvy tříd, protože vývojáři vybírají třídy z předdefinovaného designového systému. To znamená, že nemusí přemýšlet o "dokonalých" názvech tříd pro určité styly a komponenty nebo si pamatovat složité názvy. \cite{TailwindUtilityFirst}
+Jednou z hlavních výhod Tailwind je možnost psát méně vlastního CSS. Vývojáři mohou využívat předdefinované třídy, jako jsou flexbox a padding utility, což znamená, že většina stylů je opakovaně použitelná a zřídka je potřeba psát nové CSS. Tailwind také eliminuje potřebu vymýšlet názvy tříd, protože vývojáři vybírají třídy z předdefinovaného designového systému. To znamená, že nemusí přemýšlet o \uv{dokonalých} názvech tříd pro určité styly a komponenty nebo si pamatovat složité názvy. \cite{TailwindUtilityFirst}
 
 Tailwind je známý svou flexibilitou a kontrolou nad tím, jak aplikace vypadá, což poskytuje větší prostor pro vytváření jedinečných webů. Na rozdíl od jiných CSS frameworků, jako je Bootstrap nebo Materialize, Tailwind nenabízí plně stylované komponenty, jako jsou tlačítka nebo dropdown menu. Místo toho nabízí utility třídy, které umožňují vytvořit vlastní opakovaně použitelné komponenty.
 
-Přestože Tailwind nabízí mnoho výhod, může být jeho použití obtížné pro ty, kteří nejsou zkušení s CSS, a může způsobovat zmatek kvůli množství informací uložených v HTML souboru. Navíc při instalaci Tailwindu jsou výchozí CSS styly odstraněny, takže je nutné je pro všechny elementy znovu vytvořit.
+Přestože Tailwind nabízí mnoho výhod, může být jeho použití obtížné pro ty, kteří nejsou zkušení s CSS, a může způsobovat zmatek kvůli množství informací uložených v HTML souboru. Navíc při instalaci Tailwindu jsou výchozí CSS styly resetovány \cite{TailwindPreflight}, takže je nutné je pro všechny elementy znovu vytvořit.
 
 Tailwind je v této diplomové práci použit pro stylování komponent a stránek. Také je využit pro tvorbu motivů a brandingu pomocí jeho konfiguračního souboru a CSS proměnných.
 
@@ -55,8 +55,13 @@ Shiki je knihovna pro syntax highlighting, která je založena na stejném mecha
 
 V této diplomové práci je Shiki použit pro zvýrazňování syntaxe v dokumentaci a ukázkových kódech, což zvyšuje čitelnost obsahu a usnadňuje vývojářům rychleji porozumět kódu.
 
+\begin{figure}[H]
+  \includegraphics[width=\textwidth]{images/shiki}
+  \caption{Zvýraznění kódu pomocí Shiki} \label{picture:shiki}
+\end{figure}
+
 \subsection{Headless UI}
-Nestylované, přístupné UI komponenty, navržené tak, aby se jednoduše používali s Tailwind CSS. \cite{HeadlessUI}
+Nestylované, přístupné UI komponenty, navržené tak, aby se jednoduše používaly s Tailwind CSS. \cite{HeadlessUI}
 
 Headless UI je sada přístupných UI komponent, které jsou navrženy tak, aby byly snadno integrovatelné do jakéhokoliv designu nebo frontendového frameworku. Tato knihovna poskytuje základní funkční strukturu pro běžné UI prvky, jako jsou rozbalovací menu, přepínače a dialogová okna, ale neobsahuje žádné vlastní styly, což umožňuje vývojářům plně ovládat vzhled těchto komponent. Headless UI je ideální pro projekty, které vyžadují vysokou míru přizpůsobení a chtějí používat specifický designový jazyk bez nutnosti bojovat s předdefinovanými styly. Komponenty jsou navrženy s ohledem na přístupnost, což zajišťuje, že aplikace jsou použitelné pro širokou škálu uživatelů, včetně těch s omezenými schopnostmi. Headless UI tak usnadňuje vytváření robustních a esteticky příjemných webových aplikací, které jsou zároveň přístupné a uživatelsky přívětivé.
 
@@ -123,7 +128,7 @@ V této diplomové práci jsou pnpm workspaces použity pro efektivní správu k
 
 
 \subsection{Changesets}
-Changesets je nástroj, který pomáhá spravovat, verzovat a zveřejňovat změny v projektech s mnoha balíčky, typicky v monorepozitářích. Tento systém umožňuje vývojářům přidávat "changeset"~soubory do git repozitáře, které popisují změny v balíčcích a jejich dopad na semantické verzování. Když přichází čas na vydání nové verze, Changesets automaticky generuje changelogy a aktualizuje verze balíčků podle pravidel semantického verzování. Tato metoda zajišťuje, že uživatelé knihovny mají jasné informace o tom, co každá verze zahrnuje. Changesets tak přináší transparentnost a předvídatelnost do procesu vývoje softwaru, což je zvláště cenné v prostředích, kde spolupracuje mnoho vývojářů. \cite{Changesets}
+Changesets je nástroj, který pomáhá spravovat, verzovat a zveřejňovat změny v projektech s mnoha balíčky, typicky v monorepozitářích. Tento systém umožňuje vývojářům přidávat \uv{changeset}~soubory do git repozitáře, které popisují změny v balíčcích a jejich dopad na semantické verzování. Když přichází čas na vydání nové verze, Changesets automaticky generuje changelogy a aktualizuje verze balíčků podle pravidel semantického verzování. Tato metoda zajišťuje, že uživatelé knihovny mají jasné informace o tom, co každá verze zahrnuje. Changesets tak přináší transparentnost a předvídatelnost do procesu vývoje softwaru, což je zvláště cenné v prostředích, kde spolupracuje mnoho vývojářů. \cite{Changesets}
 
 V této diplomové práci je Changesets použit pro správu změn a verzování balíčků v rámci monorepozitáře. Tento nástroj zajišťuje, že všechny změny jsou správně dokumentovány a verzovány, což usnadňuje vydávání nových verzí.
 
@@ -137,7 +142,7 @@ npx je nástroj přibalený s npm, který zjednodušuje spouštění balíčků 
 V této diplomové práci je npm použito pro publikaci balíčku CLI pro instalaci komponent. Poté se pro jeho spuštění využívá npx.
 
 \subsection{Github}
-GitHub je jedna z největších a nejznámějších platform pro správu softwarových projektů a verzování kódu pomocí systému Git. Umožňuje vývojářům hostovat a verzovat kód, spravovat projekty a sestavovat software společně s miliony dalších uživatelů po celém světě. GitHub poskytuje nástroje pro kolaborativní vývoj, jako jsou pull requesty (připojení nového kódu do dalších větví), správa větví a issues pro každý projekt. Platforma se stala populárním nástrojem pro open source projekty, ale je rovněž populární mezi společnostmi pro soukromý vývoj softwaru díky svým robustním funkcím pro správu přístupu a integraci s různými externími službami. Dále, GitHub rozšiřuje své funkce o GitHub Actions, což jsou automatizační nástroje pro CI/CD procesy, které umožňují automatizovat testování a nasazování aplikací přímo z repozitářů na GitHubu. \cite{Github}
+GitHub je jedna z největších a nejznámějších platforem pro správu softwarových projektů a verzování kódu pomocí systému Git. Umožňuje vývojářům hostovat a verzovat kód, spravovat projekty a sestavovat software společně s miliony dalších uživatelů po celém světě. GitHub poskytuje nástroje pro kolaborativní vývoj, jako jsou pull requesty (připojení nového kódu do dalších větví), správa větví a issues pro každý projekt. Platforma se stala populárním nástrojem pro open source projekty, ale je rovněž populární mezi společnostmi pro soukromý vývoj softwaru díky svým robustním funkcím pro správu přístupu a integraci s různými externími službami. Dále, GitHub rozšiřuje své funkce o GitHub Actions, což jsou automatizační nástroje pro CI/CD procesy, které umožňují automatizovat testování a nasazování aplikací přímo z repozitářů na GitHubu. \cite{Github}
 
 V této diplomové práci je GitHub použit pro správu kódu a verzování projektu. Díky GitHub Actions jsou automatizovány procesy testování a nasazování aplikace.
 

@@ -94,13 +94,25 @@
 \usepackage{lipsum,tikz}
 \usepackage{csquotes}
 \addbibresource{text/bib-database.bib}
-%\usepackage{listings} % typesetting of sources
+\usepackage{listings} % typesetting of sources
 \usepackage{minted}
 \usepackage{graphicx} % typesetting of sources
 % \usepackage[allfiguresdraft]{draftfigure} % TODO: Comment this line to get images rendered
 \usepackage{subfig}
 \usepackage{tabularx}
 \usepackage{xevlna}		% for non-breakable whitespaces
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{xparse}
+
+\tcbuselibrary{listings, minted, skins}
+\tcbset{listing engine=minted}
+
+\DeclareTCBListing{code}{ !O{ts} }{
+    listing only, minted language=#1, minted style=bw,
+    colback=headbackgroundgray, enhanced, frame hidden, minted options={fontfamily=helvetica, 
+    fontsize=\normalsize, tabsize=2, breaklines, autogobble, highlightcolor=black, linenos, xleftmargin=0.75cm, xrightmargin=0.75cm}
+}
 
 \renewcommand\theFancyVerbLine{\normalsize\arabic{FancyVerbLine}}
 
@@ -262,11 +274,12 @@
 \include{text/introduction}
 \include{text/analysis}
 \include{text/technologies}
-% \include{text/design}
+\include{text/design}
 \include{text/implementation}
 \include{text/testing}
 \include{text/future-improvements}
 \include{text/conclusion}
+% \include{text/examples}
 
 % \include{text/examples} % include `examples.tex' from `text/' subdirectory
 
