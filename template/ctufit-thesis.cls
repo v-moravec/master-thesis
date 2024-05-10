@@ -280,7 +280,6 @@
 \def\frontchapterfont{\Large \bfseries}
 \def\frontsectionfont{\large\bfseries}
 \def\frontsubsectionfont{\large}
-\def\frontsubsubsectionfont{\bfseries}
 % frontmatter headings end
 
 % frontmatter pseudochapters: named part without printing actual chapter heading
@@ -401,7 +400,11 @@
 
 \titleformat{\subsubsection}
   {\large\bfseries\color{heading}}{{{\color{black}\thesubsubsection}}}{1em}{}%[\vskip -1em]
+
+\titleformat{\paragraph}
+  {\normalsize\bfseries\color{heading}}{{{\color{black}\theparagraph}}}{1em}{}%[\vskip -1em]
 }
+
 %%%%%%%%%%%%%%%%%%%%
 % MAINMATTER SETTINGS END
 %%%%%%%%%%%%%%%%%%%%
