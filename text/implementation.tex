@@ -3,23 +3,93 @@
 
 \chapter{Implementace}
 
-Začal jsem vytvořením projektu pomocí \mintinline{console}|npx nuxi@latest init content-app -t content|. Tento příkaz vytvoří
-projekt s připravený Nuxt Content modulem. Dále jsem přidal potřebné moduly pro vývoj, jako je například Tailwind, Nuxt Icon,
-Nuxt Color Mode a v neposlední řadě Nuxt SEO. Pro větší konzistenci kódu jsem přidal i ESLint a Prettier.
+\section{Úvod}
+V této kapitole bude zaměřena pozornost na implementaci sbírky znovupoužitelných Nuxt komponent. Implementace je fází vývoje, kde jsou teoretické návrhy a plánování transformovány do praktických a funkčních výsledků. Tato fáze zahrnuje konkrétní kroky a postupy potřebné k vytvoření komponent, dokumentace a CLI, které splňují stanovené požadavky a cíle.
+
+Cílem této kapitoly je podrobně popsat strukturu projektu, jednotlivé části implementace a jejich vzájemné propojení. Dále bude věnována pozornost dokumentaci komponent, jejich kódu a blokům, které tvoří základ pro uživatelsky přívětivé a efektivní rozhraní. Implementace také zahrnuje tvorbu a použití příkazového řádku (CLI), který usnadňuje práci s komponentami a jejich integraci do různých projektů.
+
+\section{Struktura projektu}
+Pro zajištění efektivní správy a rozvoje projektu byla použita struktura monorepozitáře. Monorepozitář umožňuje uchovávat kód pro více balíčků v jednom repozitáři, což usnadňuje správu závislostí a zajišťuje konzistenci napříč celým projektem.
 
 \clearpage
 
-\section{Nastavení Tailwindu}
+\subsection{Struktura monorepozitáře}
+Struktura monorepozitáře je následující:
 
-Nejdříve jsem se potýkal s chybějícími styly. Chtěl jsem to řešit pomocí \emph{safelistu}, ale to mi nepřišlo jako ideální řešení.
-Po chvíli jsem zjistil, že lze specifikovat, které složky má při buildu Tailwind procházet a hledat tak potřebné styly. Tailwind totiž
-využívá tree shakingu, takže výsledný balíček obsahuje pouze styly, které jsou použité. Toto nastavení jsem přidal do \mintinline{js}|tailwind.config.js|.
-Konkrétně se jednalo o řádek 7 v ukázce \ref{lst:tailwind-config}.
+\begin{listing}[H]
+\caption{Struktura monorepozitáře}
+\label{lst:monorepo-structure}
+\begin{code}[bash]
+/v-moravec-ui
+|-- /packages
+|   |-- /cli
+|   |   |-- /src
+|   |   |   |-- /commands
+|   |   |   |   |-- /add.ts
+|   |   |   |   |-- /init.ts
+|   |   |   |-- /utils
+|   |   |   |   |-- /getPackageManager.ts
+|   |   |   |   |-- /handleError.ts
+|   |   |   |   |-- /checkNuxtProject.ts
+|   |   |   |   |-- /installDependencies.ts
+|   |   |   |   |-- /removeDuplicates.ts
+|   |   |   |-- constants.ts
+|   |   |   |-- index.ts
+|-- /apps
+|   |-- /docs
+|   |   |-- /components
+|   |   |   |-- /ui
+|   |   |   |-- /block
+|-- package.json
+|-- pnpm-workspace.yaml
+\end{code}
+\end{listing}
 
-\begin{listing}[h]
+\subsection{Popis jednotlivých částí}
+
+\begin{itemize}
+    \item /packages: Tento adresář obsahuje jednotlivé balíčky, které jsou součástí monorepozitáře.
+    \item /cli: Tento balíček obsahuje CLI nástroje pro správu projektu. V adresáři src/commands se nachází jednotlivé příkazy jako add.ts a init.ts. V adresáři src/utils jsou různé užitečné funkce. Další soubory zahrnují constants.ts a index.ts, které obsahují základní konfiguraci a vstupní bod CLI nástroje.
+    \item /apps: Tento adresář obsahuje jednotlivé aplikace. V tomto případě se jedná pouze o dokumentační aplikaci. V budoucnu mohou být přidány další aplikace, jako je například ukázková aplikace využívající komponenty.
+    \item /docs: Dokumentační aplikace, která demonstruje použití vytvořených komponent a bloků. V adresáři components se nachází další podadresáře jako ui a block.
+    \item package.json: Hlavní soubor pro správu závislostí a skriptů na úrovni celého monorepozitáře.
+    \item pnpm-workspace.yaml: Konfigurační soubor pro pnpm, který definuje strukturu workspace a zahrnuje všechny balíčky a aplikace.
+\end{itemize}
+
+Díky této struktuře je možné jednoduše vyvíjet komponenty, jejich dokumentaci a CLI bez nutnosti spravovat více repozitářů a závislostí.
+
+\section{Dokumentace}
+Implementace začala vytvořením nového projektu pomocí příkazu, který inicializuje projekt s připraveným Nuxt Content modulem.\\
+
+\mintinline{console}|npx nuxi@latest init v-moravec-ui -t content|\\
+
+Tento příkaz vytvoří základní strukturu projektu a přidá potřebné závislosti, což umožňuje rychlý start vývoje. Po vytvoření projektu byly přidány další moduly nezbytné pro vývoj, jako je Tailwind CSS, Nuxt Icon, Nuxt Color Mode a Nuxt SEO. Tyto moduly poskytují širokou škálu funkcí pro stylování, správu ikon, podporu tmavého režimu a optimalizaci SEO.
+
+Aby bylo možné využít komponenty v rámci dokumentace, bylo potřeba je označit jako globální. Toto se hodí pro minimalizaci duplikace kódu a zjednodušení práce s komponentami. Toto označení bylo přidáno do souboru nuxt.config.ts. Pro koncové aplikace není nutné nastavovat komponenty jako globální. Ukázka kódu \ref{lst:global-components} ukazuje, jak lze označit komponenty jako globální.
+
+\begin{listing}[H]
+    \caption{Označení komponent jako globální}
+    \label{lst:global-components}
+    \begin{code}
+components: {
+  dirs: [
+    {
+      path: '~/components/ui',
+      global: true,
+      prefix: 'Ui',
+    },
+    '~/components',
+  ],
+},
+\end{code}
+\end{listing}
+
+Nastavení Tailwind CSS vyžadovalo specifikaci složek, které má při buildu procházet a hledat styly, aby byly zahrnuty pouze potřebné styly díky využití tree shakingu. Toto nastavení bylo přidáno do souboru tailwind.config.ts. Tree shaking umožňuje minimalizaci velikosti výsledného balíčku tím, že odstraní nepoužívané styly, což zlepšuje výkon aplikace. Ukázka kódu \ref{lst:tailwind-config} ukazuje, jak lze nastavit Tailwind CSS na procházení složek se zdrojovým kódem. Kromě toho je zde zobrazena i struktura, která se používá pro definování barev, velikostí a dalších vlastností.
+
+\begin{listing}[H]
     \caption{Konfigurační soubor pro Tailwind}
     \label{lst:tailwind-config}
-    \begin{minted}{js}
+    \begin{code}
 import type { Config } from 'tailwindcss'
 import typography from '@tailwindcss/typography'
 import containerQueries from '@tailwindcss/container-queries'
@@ -57,24 +127,109 @@ export default <Partial<Config>>{
     },
     plugins: [typography, containerQueries],
 }
-    \end{minted}
+    \end{code}
 \end{listing}
 
-\section{Zobrazení kódu}
+\section{Komponenty}
+Jedna ze zajímavějších věcí, kterou bylo potřeba vyřešit je jak psát znovupoužitelné komponenty. Je možné používat sloty, které mají jména, případně použít wrappery neboli obaly, které zachovávají logiku v sobě. V rámci konkurenčních řešení se často používají wrappery, ačkoliv to je pravděpodobně způsobeno tím, že se jedná o řešení pro React, potažmo o řešení převzaté z původní React verze. Ve Vue je jednodušší řešení přímo pomocí pojmenovaných slotů - poté se kód zjednodušší a nemusí se používat direktivy jako provide a inject, které zhoršují čitelnost kódu.
 
-Nuxt Content má zabudovanou možnost zobrazení kódu. \cite{NuxtContentCodeHighlighting} Potřeboval jsem vymyslet, jak zobrazit kód bez jeho duplikace.
-V tom mi pomohl zdrojový kód knihovny NuxtUI. Tato knihovna využívá principu vygenerování endpointů pro zobrazení zdrojového kódu
-přímo ze souborů s komponentami, popřípadě ze souborů s ukázkami použití. \cite{NuxtUISourceCodeModule}
+Pojmenované sloty jsou užitečné pro složitější komponenty, které vyžadují více oblastí pro různé části obsahu. Pojmenované sloty se definují pomocí atributu name na <slot> značce a obsah se vkládá pomocí template tagu s atributem v-slot.
 
-\section{Deploy}
-Dokumentace se automaticky nasadí pomocí Github Actions na Cloudflare Pages. Nastavení je velmi jednoduché, stačí mít účet na Githubu a Cloudflare,
-po vytvoření repozitáře jej spojit s projektem na Clouflare Pages a při každém pushi do větve \mintinline{console}|main| se dokumentace automaticky nasadí.
+\begin{listing}[H]
+    \caption{Pojmenované sloty - definice}
+    \label{lst:named-slots}
+    \begin{code}[jsx]
+<!-- Card.vue -->
+<template>
+  <div class="card">
+    <header>
+      <slot name="header"></slot>
+    </header>
+    <main>
+      <slot></slot>
+    </main>
+    <footer>
+      <slot name="footer"></slot>
+    </footer>
+  </div>
+</template>
+    \end{code}
+\end{listing}
 
+\begin{listing}[H]
+    \caption{Pojmenované sloty - použití}
+    \label{lst:named-slots}
+    \begin{code}[html]
+<!-- ParentComponent.vue -->
+<template>
+    <Card>
+    <template v-slot:header>
+        <h1>Card Header</h1>
+    </template>
+    <p>This is the main content.</p>
+    <template v-slot:footer>
+        <p>Card Footer</p>
+    </template>
+    </Card>
+</template>
+    \end{code}
+\end{listing}
 
+\section{Kód komponent a bloků}
 
-% \subsection{Body pro implementaci}
-% \begin{itemize}
-%     \item Dokumentace
-%     \item Komponenty
-% \end{itemize}
+Nuxt Content má zabudovanou možnost zobrazení kódu. \cite{NuxtContentCodeHighlighting} Bylo potřeba vymyslet, jak zobrazit kód bez jeho duplikace. V tom pomohl zdrojový kód knihovny Nuxt UI. Tato knihovna využívá principu vygenerování endpointů pro zobrazení zdrojového kódu přímo ze souborů s komponentami, popřípadě ze souborů s ukázkami použití. \cite{NuxtUISourceCodeModule}
 
+Pomocí několika modulů, které byly vytvořeny pro tento účel, bylo možné poskytnout kód komponent, bloků a dalších pomocných souborů na API aplikace, která obsahuje dokumentaci. Díky tomuto způsobu je možné kód zobrazit v dokumentaci a také použít v rámci CLI pro přidání komponent do projektu.
+
+\section{CLI}
+Vytvoření příkazu, který CLI umožňuje použít vypadá následovně:
+
+\begin{listing}[H]
+    \caption{Příkaz pro přidání komponent a bloků}
+    \label{lst:cli-install}
+    \begin{code}
+export const add = new Command()
+.name('add')
+.description('add components and blocks to your application')
+.argument('[componentsAndBlocks...]', 'components and blocks to add')
+.action(async (componentsAndBlocks, opts) => {
+    // Logika pro přidání komponent a bloků
+})        
+    \end{code}
+\end{listing}
+
+\clearpage
+
+Pro kontrolu, zda jsou všechna data z API v pořádku byl použit Zod. Zde je ukázka vytvoření schématu a použití pro validaci dat:
+
+\begin{listing}[H]
+    \caption{Validace dat pomocí Zod}
+    \label{lst:cli-install}
+    \begin{code}
+const componentAndBlockSchema = z.object({
+  code: z.string(),
+  uiDependencies: z.string().array().optional(),
+  dependencies: z.string().array().optional(),
+  composableDependencies: z.string().array().optional(),
+  shortPath: z.string(),
+  pascalName: z.string(),
+})
+
+const componentsAndBlocksSchema = z.record(z.string(), z.array(componentAndBlockSchema))
+
+const components = componentsAndBlocksSchema.safeParse(await (await fetch(BASE_URL + '/component-list')).json())
+const blocks = componentsAndBlocksSchema.safeParse(await (await fetch(BASE_URL + '/block-list')).json())
+
+if (!components.success) {
+    return handleError(components.error)
+}
+if (!blocks.success) {
+    return handleError(blocks.error)
+}
+
+// Pokračování práce s daty
+    \end{code}
+\end{listing}
+
+\section{Závěr}
+V této kapitole byla podrobně popsána implementace sbírky znovupoužitelných Nuxt komponent. Byly popsány jednotlivé části projektu, jejich struktura a vzájemné propojení, čímž byl vytvořen komplexní nástroj pro vývoj a použití této kolekce. Dokumentace komponent byla zpracována tak, aby usnadnila jejich používání, což zajišťuje jejich efektivní integraci do různých projektů. Velká pozornost byla věnována nejen samotnému kódu komponent, ale také tvorbě pomocných nástrojů.
