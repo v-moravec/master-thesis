@@ -4,9 +4,7 @@
 \chapter{Návrh}
 
 \section{Úvod}
-Návrh je důležitým krokem v procesu vývoje, který předchází samotné implementaci a testování. Tato kapitola se zabývá návrhem sbírky znovupoužitelných UI komponent a s ní spojených nástrojů, jejichž cílem je poskytnout vývojářům a designérům efektivní a flexibilní způsoby, jak rychle vytvářet a implementovat konzistentní a esteticky líbivá uživatelská rozhraní.
-
-V této kapitole bude podrobně rozebrán postup a myšlenkové procesy, které vedou k vytvoření sbírky komponent přívětivé jak pro uživatele, tak pro vývojáře. Nejprve bude popsán vývoj a struktura dokumentace, která je nezbytná pro správné použití a rozšíření UI kolekce, dále návrh samotných komponent a příprava Figma kitu, který slouží jako most mezi designéry a vývojáři. Také bude vysvětlen význam a využití bloků, které umožňují rychlejší a efektivnější vývoj webových aplikací. Nakonec bude popsán návrh CLI, které umožňuje snadné přidávání komponent do existujících projektů.
+Návrh je důležitým krokem v procesu vývoje, který předchází samotné implementaci a testování. V této kapitole bude podrobně rozebrán postup a myšlenkové procesy, které vedou k vytvoření sbírky komponent přívětivé jak pro uživatele, tak pro vývojáře. Nejprve bude popsán vývoj a struktura dokumentace, která je nezbytná pro správné použití a rozšíření UI kolekce, dále návrh samotných komponent a příprava Figma kitu, který slouží jako most mezi designéry a vývojáři. Také bude vysvětlen význam a využití bloků, které umožňují rychlejší a efektivnější vývoj webových aplikací. Nakonec bude popsán návrh CLI, které umožňuje snadné přidávání komponent do existujících projektů.
 
 \section{Dokumentace}
 Součástí každého softwarového projektu by měla být kvalitní dokumentace (ačkoliv se tak často neděje). Pro účely této sbírky znovupoužitelných UI komponent je potřeba připravit dokumentaci, která nejen vysvětluje jak používat jednotlivé komponenty, ale také poskytuje ucelený pohled na architekturu a filozofii za celým projektem. Tato sekce se zabývá obsahem dokumentace a její strukturou.
@@ -21,10 +19,22 @@ Hlavním cílem dokumentace je poskytnout vývojářům všechny potřebné info
   \item[Přehled komponent] Detailní popis každé komponenty, včetně jejího účelu, možností konfigurace a příkladů použití.
 \end{description}
 
-Dokumentace je rozdělena do dvou hlavních sekcí: \uv{Getting Started} a \uv{Components}. Sekce \uv{Getting Started} poskytuje uživatelům všechny základní informace potřebné pro rychlý start s knihovnou, včetně instalace, konfigurace a prvních kroků s komponentami. To pomáhá novým uživatelům snadno se orientovat v možnostech knihovny a začít s jejím používáním. Sekce \uv{Components} se zabývá detailním popisem jednotlivých komponent, včetně jejich vlastností, možností přizpůsobení a příkladů použití.
+Dokumentace bude rozdělena do dvou hlavních sekcí: \uv{Getting Started} a \uv{Components}. Sekce \uv{Getting Started} bude poskytovat uživatelům všechny základní informace potřebné pro rychlý start s knihovnou, včetně instalace, konfigurace a prvních kroků s komponentami. To pomůže novým uživatelům snadno se orientovat v možnostech knihovny a začít s jejím používáním. Sekce \uv{Components} se bude zabývat detailním popisem jednotlivých komponent, včetně jejich vlastností, možností přizpůsobení a příkladů použití.
 
 \subsection{Dokumentace konkrétních komponent}
-Stránka dokumentace pro každou konkrétní komponentu je jasně strukturovaná a poskytuje ucelené informace, které usnadní její použití. Na začátku stránky je uveden název komponenty, pod ním se nachází krátký popis, který objasňuje, k čemu komponenta slouží. Následuje sekce s ukázkou, kde je ukázka komponenty, doplněná o příslušný zdrojový kód, který ilustruje, jak lze komponentu použít. Návod k instalaci popisuje, jak komponentu přidat do projektu, ať už pomocí CLI nástroje nebo prostřednictvím manuálního kopírování kódu. Na stránce vývojáři naleznou také seznam props a slotů, které umožňují přizpůsobit komponentu specifickým potřebám. Stránka může dále obsahovat další poznámky a varování ohledně specifik komponenty, jako jsou potenciální chyby, omezení, nebo doporučené postupy.
+Stránka dokumentace pro každou konkrétní komponentu bude jasně strukturovaná a poskytuje ucelené informace, které usnadní její použití. Na začátku stránky bude uveden název komponenty a pod ním krátký popis, který objasňuje, k čemu komponenta slouží. Bude následovat sekce s ukázkou komponenty, doplněná o příslušný zdrojový kód, který bude ilustrovat, jak lze komponentu použít. Návod k instalaci bude popisovat, jak komponentu přidat do projektu, ať už pomocí CLI nástroje nebo prostřednictvím manuálního kopírování kódu. Na stránce vývojáři naleznou také seznam props a slotů, které umožňují přizpůsobit komponentu specifickým potřebám. Stránka může dále obsahovat další poznámky a varování ohledně specifik komponenty, jako jsou potenciální chyby, omezení, nebo doporučené postupy.
+
+\section{Figma Kit}
+Figma Kit je vyvinut s cílem poskytnout designérům a vývojářům snadno použitelnou sadu komponent, které jim umožní efektivně navrhovat a prototypovat aplikace. Kit obsahuje komponenty UI kolekce, přesně tak, jak jsou definovány ve finální implementaci, což zajišťuje, že designy jsou plně kompatibilní s konečnou implementací. Připravené jsou komponenty jako tlačítka, inputy, plovoucí prvky a mnoho dalšího, což designérům umožňuje sestavit uživatelské rozhraní rychle a s vysokou mírou přesnosti.
+
+Pro vývojáře je pak snadné převést designy vytvořené v Figmě do kódu, protože mohou snadno identifikovat, které komponenty mají být použity. Díky definovaným proměnným lze snadno přizpůsobit barvy, velikosti a další vlastnosti komponent, které vývojáři mohou specifikovat v rámci projektu.
+
+U každé komponenty se nachází odkaz do dokumentace, kde mohou jak designéři, tak vývojáři najít podrobné informace o tom, k čemu komponenta je a jaké jsou její možnosti.
+
+\begin{figure}[H]
+  \includegraphics[width=\textwidth]{images/figma-kit}
+  \caption{Komponenty ve Figmě} \label{picture:figma-kit}
+\end{figure}
 
 \section{Komponenty}
 Výběr těchto komponent byl založen na jejich základní funkčnosti a častém využití ve webových aplikacích. Každá z těchto komponent přináší konkrétní užitečné vlastnosti, které zlepšují uživatelský zážitek a zjednodušují vývojový proces. Tento soubor základních komponent vytváří pevný základ pro další rozšiřování sbírky. V budoucnu bude sbírka doplněna o další komponenty, které budou reagovat na specifické potřeby a požadavky vývojářů.
@@ -282,18 +292,6 @@ Blog blok slouží k zobrazení seznamu článků nebo příspěvků na blogu. T
 \subsection{Header}
 
 Header je horní část webové stránky, která obvykle obsahuje logo, navigační menu a další prvky, jako jsou odkazy na přihlášení, nákupní košík nebo vyhledávací pole. Header je důležitým prvkem každé webové stránky, protože poskytuje uživatelům rychlý přístup k hlavním sekcím webu a usnadňuje navigaci. Důraz na jednoduchost a přehlednost v headeru zlepšuje uživatelskou zkušenost a orientaci.
-
-\section{Figma Kit}
-Figma Kit je vyvinut s cílem poskytnout designérům a vývojářům snadno použitelnou sadu komponent, které jim umožní efektivně navrhovat a prototypovat aplikace. Kit obsahuje komponenty UI kolekce, přesně tak, jak jsou definovány ve finální implementaci, což zajišťuje, že designy jsou plně kompatibilní s konečnou implementací. Připravené jsou komponenty jako tlačítka, inputy, plovoucí prvky a mnoho dalšího, což designérům umožňuje sestavit uživatelské rozhraní rychle a s vysokou mírou přesnosti.
-
-Pro vývojáře je pak snadné převést designy vytvořené v Figmě do kódu, protože mohou snadno identifikovat, které komponenty mají být použity. Díky definovaným proměnným lze snadno přizpůsobit barvy, velikosti a další vlastnosti komponent, které vývojáři mohou specifikovat v rámci projektu.
-
-U každé komponenty se nachází odkaz do dokumentace, kde mohou jak designéři, tak vývojáři najít podrobné informace o tom, k čemu komponenta je a jaké jsou její možnosti.
-
-\begin{figure}[H]
-  \includegraphics[width=\textwidth]{images/figma-kit}
-  \caption{Komponenty ve Figmě} \label{picture:figma-kit}
-\end{figure}
 
 \section{CLI}
 Pro usnadnění práce s UI knihovnou je potřeba vyvinout CLI, které pomůže s inicializací a přidávání komponent do projektů.
