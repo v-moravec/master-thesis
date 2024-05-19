@@ -1,7 +1,7 @@
 %! Author = Vojta
 %! Date = 21.1.2024
 
-\chapter{Implementace}
+\chapter{Implementace}\label{ch:implementation}
 
 \section{Úvod}
 V této kapitole bude zaměřena pozornost na implementaci sbírky znovupoužitelných Nuxt komponent. Implementace je fází vývoje, kde jsou teoretické návrhy a plánování transformovány do praktických a funkčních výsledků. Tato fáze zahrnuje konkrétní kroky a postupy potřebné k vytvoření komponent, dokumentace a CLI, které splňují stanovené požadavky a cíle.
@@ -52,6 +52,8 @@ Struktura monorepozitáře je následující:
     \item /cli: Tento balíček obsahuje CLI nástroje pro správu projektu. V adresáři src/commands se nachází jednotlivé příkazy jako add.ts a init.ts. V adresáři src/utils jsou různé užitečné funkce. Další soubory zahrnují constants.ts a index.ts, které obsahují základní konfiguraci a vstupní bod CLI nástroje.
     \item /apps: Tento adresář obsahuje jednotlivé aplikace. V tomto případě se jedná pouze o dokumentační aplikaci. V budoucnu mohou být přidány další aplikace, jako je například ukázková aplikace využívající komponenty.
     \item /docs: Dokumentační aplikace, která demonstruje použití vytvořených komponent a bloků. V adresáři components se nachází další podadresáře jako ui a block.
+    \item /ui: Zde jsou umístěny všechny základní komponenty, které jsou součástí sbírky.
+    \item /block: Zde jsou umístěny bloky, které kombinují jednotlivé komponenty do složitějších struktur.
     \item package.json: Hlavní soubor pro správu závislostí a skriptů na úrovni celého monorepozitáře.
     \item pnpm-workspace.yaml: Konfigurační soubor pro pnpm, který definuje strukturu workspace a zahrnuje všechny balíčky a aplikace.
 \end{itemize}
@@ -65,7 +67,7 @@ Implementace začala vytvořením nového projektu pomocí příkazu, který ini
 
 Tento příkaz vytvoří základní strukturu projektu a přidá potřebné závislosti, což umožňuje rychlý start vývoje. Po vytvoření projektu byly přidány další moduly nezbytné pro vývoj, jako je Tailwind CSS, Nuxt Icon, Nuxt Color Mode a Nuxt SEO. Tyto moduly poskytují širokou škálu funkcí pro stylování, správu ikon, podporu tmavého režimu a optimalizaci SEO.
 
-Aby bylo možné využít komponenty v rámci dokumentace, bylo potřeba je označit jako globální. Toto se hodí pro minimalizaci duplikace kódu a zjednodušení práce s komponentami. Toto označení bylo přidáno do souboru nuxt.config.ts. Pro koncové aplikace není nutné nastavovat komponenty jako globální. Ukázka kódu \ref{lst:global-components} ukazuje, jak lze označit komponenty jako globální.
+Aby bylo možné využít komponenty v rámci dokumentace, bylo potřeba je označit jako globální v souboru \emph{nuxt.config.ts}. V rámci dokumentace je to dobré řešení pro minimalizaci duplikace kódu a zjednodušení práce s komponentami, ale pro koncové aplikace není nutné toto nastavení přidávat. Ukázka kódu \ref{lst:global-components} zobrazuje, jak lze označit komponenty jako globální.
 
 \begin{listing}[H]
     \caption{Označení komponent jako globální}
@@ -84,7 +86,7 @@ components: {
 \end{code}
 \end{listing}
 
-Nastavení Tailwind CSS vyžadovalo specifikaci složek, které má při buildu procházet a hledat styly, aby byly zahrnuty pouze potřebné styly díky využití tree shakingu. Toto nastavení bylo přidáno do souboru tailwind.config.ts. Tree shaking umožňuje minimalizaci velikosti výsledného balíčku tím, že odstraní nepoužívané styly, což zlepšuje výkon aplikace. Ukázka kódu \ref{lst:tailwind-config} ukazuje, jak lze nastavit Tailwind CSS na procházení složek se zdrojovým kódem. Kromě toho je zde zobrazena i struktura, která se používá pro definování barev, velikostí a dalších vlastností.
+Nastavení Tailwind CSS vyžadovalo specifikaci složek, které má při \emph{buildu} procházet a hledat styly, aby byly zahrnuty pouze potřebné styly díky využití \emph{tree shakingu}. Toto nastavení bylo přidáno do souboru tailwind.config.ts. \emph{Tree shaking} umožňuje minimalizaci velikosti výsledného balíčku tím, že odstraní nepoužívané styly, což zlepšuje výkon aplikace. Ukázka kódu \ref{lst:tailwind-config} ukazuje, jak lze nastavit Tailwind CSS na procházení složek se zdrojovým kódem. Kromě toho je zde zobrazena i struktura, která se používá pro definování barev, velikostí a dalších vlastností.
 
 \begin{listing}[H]
     \caption{Konfigurační soubor pro Tailwind}
@@ -127,13 +129,13 @@ export default <Partial<Config>>{
     },
     plugins: [typography, containerQueries],
 }
-    \end{code}
+\end{code}
 \end{listing}
 
 \section{Komponenty}
-Jedna ze zajímavějších věcí, kterou bylo potřeba vyřešit je jak psát znovupoužitelné komponenty. Je možné používat sloty, které mají jména, případně použít wrappery neboli obaly, které zachovávají logiku v sobě. V rámci konkurenčních řešení se často používají wrappery, ačkoliv to je pravděpodobně způsobeno tím, že se jedná o řešení pro React, potažmo o řešení převzaté z původní React verze. Ve Vue je jednodušší řešení přímo pomocí pojmenovaných slotů - poté se kód zjednodušší a nemusí se používat direktivy jako provide a inject, které zhoršují čitelnost kódu.
+Jedna ze zajímavějších věcí, kterou bylo potřeba vyřešit je jak psát znovupoužitelné komponenty. Je možné používat \emph{sloty}, které mají jména, případně použít \emph{wrappery} neboli obaly, které zachovávají logiku v sobě. V rámci konkurenčních řešení se často používají \emph{wrappery}, ačkoliv to je pravděpodobně způsobeno tím, že se jedná o řešení pro React, potažmo o řešení převzaté z původní React verze. Ve Vue je jednodušší řešení přímo pomocí pojmenovaných \emph{slotů} - poté se kód zjednodušší a nemusí se používat direktivy jako \emph{provide} a \emph{inject}, které zhoršují čitelnost kódu.
 
-Pojmenované sloty jsou užitečné pro složitější komponenty, které vyžadují více oblastí pro různé části obsahu. Pojmenované sloty se definují pomocí atributu name na <slot> značce a obsah se vkládá pomocí template tagu s atributem v-slot.
+Pojmenované \emph{sloty} jsou užitečné pro složitější komponenty, které vyžadují více oblastí pro různé části obsahu. Pojmenované \emph{sloty} se definují pomocí atributu name na <slot> značce a obsah se vkládá pomocí template tagu s atributem v-slot.
 
 \begin{listing}[H]
     \caption{Pojmenované sloty - definice}
@@ -153,7 +155,7 @@ Pojmenované sloty jsou užitečné pro složitější komponenty, které vyžad
     </footer>
   </div>
 </template>
-    \end{code}
+\end{code}
 \end{listing}
 
 \begin{listing}[H]
@@ -163,23 +165,133 @@ Pojmenované sloty jsou užitečné pro složitější komponenty, které vyžad
 <!-- ParentComponent.vue -->
 <template>
     <Card>
-    <template v-slot:header>
+    <template #header>
         <h1>Card Header</h1>
     </template>
     <p>This is the main content.</p>
-    <template v-slot:footer>
+    <template #footer>
         <p>Card Footer</p>
     </template>
     </Card>
 </template>
-    \end{code}
+\end{code}
 \end{listing}
 
-\section{Kód komponent a bloků}
+\clearpage
 
-Nuxt Content má zabudovanou možnost zobrazení kódu. \cite{NuxtContentCodeHighlighting} Bylo potřeba vymyslet, jak zobrazit kód bez jeho duplikace. V tom pomohl zdrojový kód knihovny Nuxt UI. Tato knihovna využívá principu vygenerování endpointů pro zobrazení zdrojového kódu přímo ze souborů s komponentami, popřípadě ze souborů s ukázkami použití. \cite{NuxtUISourceCodeModule}
+\subsection{Použité závislosti}
+
+\subsubsection{Nuxt Icon}
+Tvorba vlastních ikon je časově náročná a může být složitá. Ideální je využít již hotové ikony, které jsou k dispozici na internetu. Je více možností jak toho dosáhnout, například lze kopírovat SVG kód a uložit jej do assetů nebo třeba do Vue komponent. To může být ale neefektivní a nepřehledné. Pro použití ikon z online zdrojů existuje modul Nuxt Icon, který zpřístupňuje mnoho ikon pro efektivní použití v aplikacích. Tento modul je velmi pokročilý a proto je v dokumentaci doporučené jej použít. Do budoucna je možné přidat obal, aby se zachovalo konzistentní pojmenování komponent.
+
+\subsubsection{Floating UI}
+Plovoucí prvky nejsou triviální na implementaci. Je potřeba zajistit, aby byly viditelné vždy, když je uživatel potřebuje. Pro tento účel byla použita knihovna Floating UI, která poskytuje jednoduché rozhraní pro vytváření plovoucích prvků. Tato knihovna je velmi užitečná pro vytváření interaktivních prvků, jako jsou tlačítka, odkazy a formuláře. Byl vytvořen jednoduchý \emph{wrapper} formou \emph{composable}. Díky této \emph{composable} je možné vytvářet plouvoucí prvky v komponentách pomocí jednoho řádku s parametry.
+
+\begin{listing}[H]
+    \caption{Composable obalující Floating UI}
+    \label{lst:floating-ui}
+    \begin{code}
+import type { Placement, Strategy, MaybeElement } from '@floating-ui/vue'
+import { useFloating, autoUpdate, offset, flip, shift } from '@floating-ui/vue'
+
+export const useUiFloating = ({
+  placement = 'bottom',
+  offsetSize = 5,
+  strategy = 'fixed',
+}: Partial<{
+  placement: Placement
+  offsetSize: number
+  strategy: Strategy
+}>) => {
+  const anchor = ref<MaybeElement<HTMLElement>>(null)
+  const floating = ref<MaybeElement<HTMLElement>>(null)
+
+  const { floatingStyles } = useFloating(anchor, floating, {
+    strategy,
+    placement,
+    whileElementsMounted: autoUpdate,
+    middleware: [shift(), flip({ fallbackAxisSideDirection: 'end' }), offset(offsetSize)],
+  })
+
+  return { anchor, floating, floatingStyles } as const
+}
+\end{code}
+\end{listing}
+
+\begin{listing}[H]
+    \caption{Použití composable v komponentě}
+    \label{lst:floating-ui-usage}
+    \begin{code}
+const { anchor, floating, floatingStyles } = useUiFloating({ placement: props.placement, offsetSize: props.offsetSize })
+\end{code}
+\end{listing}
+
+V budoucnu je možné, že nebude potřeba používat žádné knihovny díky nativní implementaci přímo v prohlížečích. Všechny moderní prohlížeče toto nové API podporují, avšak pro lepší podporu starších browserů je lepší použití výše zmíněné knihovny. \cite{PopoverAPI}
+
+\subsubsection{Embla Carousel}
+Jedna z dalších komponent, která je složitá na implementaci je \emph{carousel}. Pro tento účel byla použita knihovna Embla Carousel. Byl vytvořen \emph{wrapper} nad jejím API v rámci několika komponent, které je možné dodatečně stylovat a ovlivňovat jejich chování.
+
+\clearpage
+
+\section{Kód komponent a bloků}
+Bylo potřeba vymyslet, jak zobrazit kód bez jeho duplikace. V tom pomohl zdrojový kód knihovny Nuxt UI. Tato knihovna využívá principu vygenerování \emph{endpointů} pro zobrazení zdrojového kódu přímo ze souborů s komponentami, popřípadě ze souborů s ukázkami použití. \cite{NuxtUISourceCodeModule}
 
 Pomocí několika modulů, které byly vytvořeny pro tento účel, bylo možné poskytnout kód komponent, bloků a dalších pomocných souborů na API aplikace, která obsahuje dokumentaci. Díky tomuto způsobu je možné kód zobrazit v dokumentaci a také použít v rámci CLI pro přidání komponent do projektu.
+
+V první části bylo potřeba získat informace o komponentách a blocích. To bylo dosaženo pomocí \emph{hooku}, který poskytuje seznam všech komponent a bloků. Tento seznam byl filtrován podle určitých kritérií a následně byl uložen do proměnné. Ukázka kódu \ref{lst:module} ukazuje, jak byl získán seznam komponent a bloků.
+
+\begin{listing}[H]
+    \caption{Prvotní získání informací o komponentách}
+    \label{lst:module}
+    \begin{code}
+nuxt.hook('components:extend', async (_components) => {
+    components = _components
+        .filter(
+        (v) =>
+            v.shortPath.includes('components/content/examples/') ||
+            v.shortPath.includes('components/block/') ||
+            v.shortPath.includes('components/ui/') ||
+            v.shortPath.includes('components/content/blocks/')
+        )
+        .reduce((acc, component) => {
+        acc[component.pascalName] = component
+        return acc
+        }, {})
+    await stubOutput()
+})
+\end{code}
+\end{listing}
+
+Také bylo využito dalšího \emph{hooku} \mintinline{javascript}|nuxt.hook('vite:extend', (vite: any) => {})|, který umožňuje při startu \emph{buildu} volat funkci, ve které se všechny komponenty zpracují a přidají do proměnné. Konkrétně se volá funkce \mintinline{javascript}|await fetchComponents()|. V rámci této funkce se získané komponenty transformují do chtěné podoby. Následující ukázka vynechává kontroly dat, které nejsou nijak zajímavé a ukazuje pouze základní transformaci dat.
+
+\clearpage
+
+\begin{listing}[H]
+    \caption{Transformace dat komponent}
+    \label{lst:module}
+    \begin{code}
+const code = await fsp.readFile(component.shortPath, 'utf-8')
+
+function removeDuplicates(arr?: string[]) {
+    if (!arr) {
+    return undefined
+    }
+    return arr.filter((v, i) => arr.indexOf(v) === i)
+}
+
+components[component.pascalName] = {
+    code,
+    shortPath: component.shortPath,
+    pascalName: component.pascalName,
+}
+\end{code}
+\end{listing}
+
+Poté se obsah proměnné uloží do souboru a jeho obsah se vrací v rámci \emph{endpointu} API. Je nutné přidat \emph{endpoint} do souboru \emph{server/api/component-list.get.ts}, který obsahuje logiku pro získání dat. Jak se soubory spojí je ukázáno v příloze \ref{lst:link-to-endpoint}, obsah samotného \emph{endpointu} v ukázce \ref{lst:code-example-endpoint}.
+
+Ještě jedna důležitá část, která se v rámci ukázek kódu neřeší jsou různé závislosti na balíčky, další komponenty a podpůrné soubory jako \emph{composables}. Aby bylo možné zjednodušit proces instalace nových komponent, bylo potřeba přidat tato data. Proto vznikly další moduly pro komponenty, bloky a \emph{composables}. Transformace dat je zobrazena v ukázce \ref{lst:cli-data-transform}.
+
+Pro zobrazení kódu má Nuxt Content zabudovanou funkci. \cite{NuxtContentCodeHighlighting} Avšak bylo potřeba si vytvořit ještě vlastní komponentu, která bude zobrazovat kód získaný z API, protože zvýraznění kódu je nativně podporované pouze v Markdown souborech. Tato komponenta využívá Shiki \emph{highlighteru}, tedy stejný princip, jaký používá Nuxt Content. Ukázka kódu \ref{lst:code-highlighter} ukazuje, jak je možné vytvořit komponentu pro zobrazení kódu.
 
 \section{CLI}
 Vytvoření příkazu, který CLI umožňuje použít vypadá následovně:
@@ -195,7 +307,7 @@ export const add = new Command()
 .action(async (componentsAndBlocks, opts) => {
     // Logika pro přidání komponent a bloků
 })        
-    \end{code}
+\end{code}
 \end{listing}
 
 \clearpage
@@ -228,7 +340,7 @@ if (!blocks.success) {
 }
 
 // Pokračování práce s daty
-    \end{code}
+\end{code}
 \end{listing}
 
 \section{Závěr}

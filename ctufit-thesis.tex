@@ -79,8 +79,6 @@
 
 \setcounter{secnumdepth}{2} % numbering sections; 4: subsubsection
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % CUSTOMIZATION of this template END
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -97,7 +95,7 @@
 \usepackage{listings} % typesetting of sources
 \usepackage{minted}
 \usepackage{graphicx} % typesetting of sources
-% \usepackage[allfiguresdraft]{draftfigure} % TODO: Comment this line to get images rendered
+\usepackage[allfiguresdraft]{draftfigure} % TODO: Comment this line to get images rendered
 \usepackage{subfig}
 \usepackage{tabularx}
 \usepackage{xevlna}		% for non-breakable whitespaces
@@ -107,6 +105,11 @@
 
 \tcbuselibrary{listings, minted, skins}
 \tcbset{listing engine=minted}
+
+\makeatletter
+\AtBeginEnvironment{code}{\dontdofcolorbox}
+\def\dontdofcolorbox{\renewcommand\fcolorbox[4][]{##4}}
+\makeatother
 
 \DeclareTCBListing{code}{ !O{ts} }{
     listing only, minted language=#1, minted style=bw,

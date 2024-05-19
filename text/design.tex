@@ -6,6 +6,8 @@
 \section{Úvod}
 Návrh je důležitým krokem v procesu vývoje, který předchází samotné implementaci a testování. V této kapitole bude podrobně rozebrán postup a myšlenkové procesy, které vedou k vytvoření sbírky komponent přívětivé jak pro uživatele, tak pro vývojáře. Nejprve bude popsán vývoj a struktura dokumentace, která je nezbytná pro správné použití a rozšíření UI kolekce, dále návrh samotných komponent a příprava Figma kitu, který slouží jako most mezi designéry a vývojáři. Také bude vysvětlen význam a využití bloků, které umožňují rychlejší a efektivnější vývoj webových aplikací. Nakonec bude popsán návrh CLI, které umožňuje snadné přidávání komponent do existujících projektů.
 
+\clearpage
+
 \section{Dokumentace}
 Součástí každého softwarového projektu by měla být kvalitní dokumentace (ačkoliv se tak často neděje). Pro účely této sbírky znovupoužitelných UI komponent je potřeba připravit dokumentaci, která nejen vysvětluje jak používat jednotlivé komponenty, ale také poskytuje ucelený pohled na architekturu a filozofii za celým projektem. Tato sekce se zabývá obsahem dokumentace a její strukturou.
 
@@ -19,28 +21,30 @@ Hlavním cílem dokumentace je poskytnout vývojářům všechny potřebné info
   \item[Přehled komponent] Detailní popis každé komponenty, včetně jejího účelu, možností konfigurace a příkladů použití.
 \end{description}
 
-Dokumentace bude rozdělena do dvou hlavních sekcí: \uv{Getting Started} a \uv{Components}. Sekce \uv{Getting Started} bude poskytovat uživatelům všechny základní informace potřebné pro rychlý start s knihovnou, včetně instalace, konfigurace a prvních kroků s komponentami. To pomůže novým uživatelům snadno se orientovat v možnostech knihovny a začít s jejím používáním. Sekce \uv{Components} se bude zabývat detailním popisem jednotlivých komponent, včetně jejich vlastností, možností přizpůsobení a příkladů použití.
+Dokumentace bude rozdělena do dvou hlavních sekcí: \emph{Getting Started} a \emph{Components}. Sekce \emph{Getting Started} bude poskytovat uživatelům všechny základní informace potřebné pro rychlý start s knihovnou, včetně instalace, konfigurace a prvních kroků s komponentami. To pomůže novým uživatelům snadno se orientovat v možnostech knihovny a začít s jejím používáním. Sekce \emph{Components} se bude zabývat detailním popisem jednotlivých komponent, včetně jejich vlastností, možností přizpůsobení a příkladů použití.
 
 \subsection{Dokumentace konkrétních komponent}
-Stránka dokumentace pro každou konkrétní komponentu bude jasně strukturovaná a poskytuje ucelené informace, které usnadní její použití. Na začátku stránky bude uveden název komponenty a pod ním krátký popis, který objasňuje, k čemu komponenta slouží. Bude následovat sekce s ukázkou komponenty, doplněná o příslušný zdrojový kód, který bude ilustrovat, jak lze komponentu použít. Návod k instalaci bude popisovat, jak komponentu přidat do projektu, ať už pomocí CLI nástroje nebo prostřednictvím manuálního kopírování kódu. Na stránce vývojáři naleznou také seznam props a slotů, které umožňují přizpůsobit komponentu specifickým potřebám. Stránka může dále obsahovat další poznámky a varování ohledně specifik komponenty, jako jsou potenciální chyby, omezení, nebo doporučené postupy.
+Stránka dokumentace pro každou konkrétní komponentu bude jasně strukturovaná a bude poskytovat ucelené informace, které usnadní její použití. Na začátku stránky bude uveden název komponenty a pod ním krátký popis, který objasňuje, k čemu komponenta slouží. Bude následovat sekce s ukázkou komponenty, doplněná o příslušný zdrojový kód, který bude ilustrovat, jak lze komponentu použít. Návod k instalaci bude popisovat, jak komponentu přidat do projektu, ať už pomocí CLI nástroje nebo prostřednictvím manuálního kopírování kódu. Na stránce vývojáři naleznou také seznam \emph{props} a \emph{slotů}, které umožňují přizpůsobit komponentu specifickým potřebám. Stránka může dále obsahovat další poznámky a varování ohledně specifik komponenty, jako jsou potenciální chyby, omezení, nebo doporučené postupy.
 
 \section{Figma Kit}
 Figma Kit je vyvinut s cílem poskytnout designérům a vývojářům snadno použitelnou sadu komponent, které jim umožní efektivně navrhovat a prototypovat aplikace. Kit obsahuje komponenty UI kolekce, přesně tak, jak jsou definovány ve finální implementaci, což zajišťuje, že designy jsou plně kompatibilní s konečnou implementací. Připravené jsou komponenty jako tlačítka, inputy, plovoucí prvky a mnoho dalšího, což designérům umožňuje sestavit uživatelské rozhraní rychle a s vysokou mírou přesnosti.
 
 Pro vývojáře je pak snadné převést designy vytvořené v Figmě do kódu, protože mohou snadno identifikovat, které komponenty mají být použity. Díky definovaným proměnným lze snadno přizpůsobit barvy, velikosti a další vlastnosti komponent, které vývojáři mohou specifikovat v rámci projektu.
 
-U každé komponenty se nachází odkaz do dokumentace, kde mohou jak designéři, tak vývojáři najít podrobné informace o tom, k čemu komponenta je a jaké jsou její možnosti.
+U každé komponenty se bude nacházet odkaz do dokumentace, kde mohou jak designéři, tak vývojáři najít podrobné informace o tom, k čemu komponenta je a jaké jsou její možnosti.
 
 \begin{figure}[H]
   \includegraphics[width=\textwidth]{images/figma-kit}
   \caption{Komponenty ve Figmě} \label{picture:figma-kit}
 \end{figure}
 
+\clearpage
+
 \section{Komponenty}
 Výběr těchto komponent byl založen na jejich základní funkčnosti a častém využití ve webových aplikacích. Každá z těchto komponent přináší konkrétní užitečné vlastnosti, které zlepšují uživatelský zážitek a zjednodušují vývojový proces. Tento soubor základních komponent vytváří pevný základ pro další rozšiřování sbírky. V budoucnu bude sbírka doplněna o další komponenty, které budou reagovat na specifické potřeby a požadavky vývojářů.
 
 \subsection{Accordion}
-Accordion je komponenta určená k zobrazení a skrytí obsahu v rozbalovacích sekcích. Umožňuje uživatelům zobrazit pouze relevantní část informací a zbytek skrýt, čímž šetří místo na obrazovce a zvyšuje přehlednost. Accordion se často používá pro často kladené otázky (FAQ) nebo detaily produktů.
+\emph{Accordion} je komponenta určená k zobrazení a skrytí obsahu v rozbalovacích sekcích. Umožňuje uživatelům zobrazit pouze relevantní část informací a zbytek skrýt, čímž šetří místo na obrazovce a zvyšuje přehlednost. \emph{Accordion} se často používá pro často kladené otázky (FAQ) nebo detaily produktů.
 
 \begin{figure}[H]
   \centering
@@ -60,7 +64,7 @@ Avatar je vizuální reprezentace uživatele, obvykle v podobě kruhového nebo 
 \end{figure}
 
 \subsection{Badge}
-Badge je komponenta používaná k zobrazení malého označení nebo indikátoru, který poskytuje dodatečnou informaci. Typickým použitím je například zobrazení štítků, počtu nepřečtených zpráv, oznámení nebo označení nových funkcí v aplikaci.
+\emph{Badge} je komponenta používaná k zobrazení malého označení nebo indikátoru, který poskytuje dodatečnou informaci. Typickým použitím je například zobrazení štítků, počtu nepřečtených zpráv, oznámení nebo označení nových funkcí v aplikaci.
 
 \begin{figure}[H]
   \centering
@@ -80,7 +84,7 @@ Breadcrumbs slouží k navigaci a orientaci uživatelů na webových stránkách
 \end{figure}
 
 \subsection{Button}
-Button je základní interaktivní komponenta, která umožňuje uživatelům provádět akce, jako je odeslání formuláře, zahájení procesu nebo navigace na jinou stránku. Buttony mohou mít různé styly a velikosti, aby odpovídaly specifickým požadavkům aplikace nebo designu.
+\emph{Button} je základní interaktivní komponenta, která umožňuje uživatelům provádět akce, jako je odeslání formuláře, zahájení procesu nebo navigace na jinou stránku. \emph{Buttony} mohou mít různé styly a velikosti, aby odpovídaly specifickým požadavkům aplikace nebo designu.
 
 \begin{figure}[H]
   \centering
@@ -90,7 +94,7 @@ Button je základní interaktivní komponenta, která umožňuje uživatelům pr
 \end{figure}
 
 \subsection{Card}
-Card je vizuální komponenta, která obklopuje obsah a poskytuje kontext. Karty jsou často používány k organizaci informací do samostatných bloků, které mohou obsahovat obrázky, texty a akční tlačítka. Cards se využívají v dashboardech, produktech nebo profilech uživatelů.
+\emph{Card} je vizuální komponenta, která obklopuje obsah a poskytuje kontext. Karty jsou často používány k organizaci informací do samostatných bloků, které mohou obsahovat obrázky, texty a akční tlačítka. \emph{Cards} se využívají v \emph{dashboardech}, produktech nebo profilech uživatelů.
 
 \begin{figure}[H]
   \centering
@@ -100,7 +104,7 @@ Card je vizuální komponenta, která obklopuje obsah a poskytuje kontext. Karty
 \end{figure}
 
 \subsection{Carousel}
-Carousel je komponenta umožňující zobrazení více položek (obrázků, karet) v rotující nebo posuvné formě. Umožňuje efektivně využít prostor a zobrazit více obsahu na omezené ploše, což je ideální pro prezentaci galerií, doporučených produktů nebo novinek.
+\emph{Carousel} je komponenta umožňující zobrazení více položek (obrázků, karet) v rotující nebo posuvné formě. Umožňuje efektivně využít prostor a zobrazit více obsahu na omezené ploše, což je ideální pro prezentaci galerií, doporučených produktů nebo novinek.
 
 \begin{figure}[H]
   \centering
@@ -110,7 +114,7 @@ Carousel je komponenta umožňující zobrazení více položek (obrázků, kare
 \end{figure}
 
 \subsection{Checkbox}
-Checkbox je vstupní komponenta, která umožňuje uživatelům vybrat jednu nebo více možností z nabídky. Používá se v formulářích, nastaveních a dalších interaktivních prvcích, kde je potřeba více výběrů.
+\emph{Checkbox} je vstupní komponenta, která umožňuje uživatelům vybrat jednu nebo více možností z nabídky. Používá se v formulářích, nastaveních a dalších interaktivních prvcích, kde je potřeba více výběrů.
 
 \begin{figure}[H]
   \centering
@@ -123,10 +127,10 @@ Checkbox je vstupní komponenta, která umožňuje uživatelům vybrat jednu neb
 Dialog je modální okno, které se objevuje nad hlavním obsahem stránky, aby poskytlo důležité informace nebo vyžádalo potvrzení akce od uživatele. Dialogy jsou používány pro potvrzovací zprávy, formuláře nebo upozornění, která vyžadují okamžitou pozornost uživatele.
 
 \subsection{Icon}
-Icon je grafický symbol reprezentující akci, objekt nebo koncept. Ikony se používají ke zlepšení vizuální komunikace v uživatelských rozhraních, často jako doplněk textových popisků. Mohou být použity v tlačítkách, navigačních lištách nebo jako vizuální indikátory. Pro použití ikon existuje modul Nuxt Icon, který zpřístupňuje mnoho ikon pro efektivní použití v aplikacích. Tento modul je velmi pokročilý a proto je v dokumentaci doporučené jej použít.
+\emph{Icon} je grafický symbol reprezentující akci, objekt nebo koncept. Ikony se používají ke zlepšení vizuální komunikace v uživatelských rozhraních, často jako doplněk textových popisků. Mohou být použity v tlačítkách, navigačních lištách nebo jako vizuální indikátory.
 
 \subsection{Loading}
-Loading je komponenta, která indikuje probíhající proces nebo načítání obsahu. Pomáhá uživatelům pochopit, že akce je v procesu a vyžaduje čas. Loading indikátory mohou mít různé formy, například točící se kolečko, prodlužující se pruh nebo blikající tečky.
+\emph{Loading} je komponenta, která indikuje probíhající proces nebo načítání obsahu. Pomáhá uživatelům pochopit, že akce je v procesu a vyžaduje čas. \emph{Loading} indikátory mohou mít různé formy, například točící se kolečko, prodlužující se pruh nebo blikající tečky.
 
 \begin{figure}[H]
   \centering
@@ -139,7 +143,7 @@ Loading je komponenta, která indikuje probíhající proces nebo načítání o
 \end{figure}
 
 \subsection{Notification}
-Notification je komponenta pro zobrazení krátkých zpráv nebo upozornění uživatelům. Může informovat o úspěšných akcích, varováních, chybách nebo nových událostech. Notifikace mohou být dočasné nebo trvalé, a obvykle se zobrazují v rohu obrazovky.
+\emph{Notification} je komponenta pro zobrazení krátkých zpráv nebo upozornění uživatelům. Může informovat o úspěšných akcích, varováních, chybách nebo nových událostech. Notifikace mohou být dočasné nebo trvalé, a obvykle se zobrazují v rohu obrazovky.
 
 \begin{figure}[H]
   \centering
@@ -148,10 +152,8 @@ Notification je komponenta pro zobrazení krátkých zpráv nebo upozornění u�
   \caption{notification} \label{picture:notification}
 \end{figure}
 
-\clearpage
-
 \subsection{Pagination}
-Pagination je komponenta, která rozděluje obsah do více stránek a poskytuje ovládací prvky pro navigaci mezi nimi. Používá se v aplikacích a na webových stránkách s velkým množstvím dat, aby se usnadnila jejich přehlednost a navigace.
+\emph{Pagination} je komponenta, která rozděluje obsah do více stránek a poskytuje ovládací prvky pro navigaci mezi nimi. Používá se v aplikacích a na webových stránkách s velkým množstvím dat, aby se usnadnila jejich přehlednost a navigace.
 
 \begin{figure}[H]
   \centering
@@ -161,7 +163,7 @@ Pagination je komponenta, která rozděluje obsah do více stránek a poskytuje 
 \end{figure}
 
 \subsection{Popover}
-Popover je komponenta, která zobrazuje dodatečný obsah v malém okně, které se objevuje pod obsahem po interakci uživatele. Popover se často používá pro kontextové nabídky, tipy nebo formuláře, které vyžadují uživatelovu pozornost, aniž by opustil aktuální stránku.
+\emph{Popover} je komponenta, která zobrazuje dodatečný obsah v malém okně, které se objevuje pod obsahem po interakci uživatele. \emph{Popover} se často používá pro kontextové nabídky, tipy nebo formuláře, které vyžadují uživatelovu pozornost, aniž by opustil aktuální stránku.
 
 \begin{figure}[H]
   \centering
@@ -171,7 +173,7 @@ Popover je komponenta, která zobrazuje dodatečný obsah v malém okně, které
 \end{figure}
 
 \subsection{Select}
-Select je vstupní komponenta umožňující uživatelům vybrat jednu možnost z rozbalovací nabídky. Používá se v formulářích a nastaveních, kde je potřeba vybrat z předdefinovaného seznamu hodnot. Select komponenty mohou být jednoduché nebo víceúrovňové.
+\emph{Select} je vstupní komponenta umožňující uživatelům vybrat jednu možnost z rozbalovací nabídky. Používá se v formulářích a nastaveních, kde je potřeba vybrat z předdefinovaného seznamu hodnot. \emph{Select} komponenty mohou být jednoduché nebo víceúrovňové.
 
 \begin{figure}[H]
   \centering
@@ -181,10 +183,10 @@ Select je vstupní komponenta umožňující uživatelům vybrat jednu možnost 
 \end{figure}
 
 \subsection{Sidebar}
-Sidebar je vertikální panel, který poskytuje navigaci nebo další obsah vedle hlavního obsahu stránky. Sidebary se používají pro menu, seznamy položek nebo další interaktivní prvky, které zůstávají přístupné během procházení hlavního obsahu.
+\emph{Sidebar} je vertikální panel, který poskytuje navigaci nebo další obsah vedle hlavního obsahu stránky. Sidebary se používají pro menu, seznamy položek nebo další interaktivní prvky, které zůstávají přístupné během procházení hlavního obsahu.
 
 \subsection{Switch}
-Switch je komponenta, která umožňuje uživatelům přepínat mezi dvěma stavy, obvykle zapnuto a vypnuto. Používá se pro nastavení, která mají binární volbu, jako je povolení nebo zakázání funkcí.
+\emph{Switch} je komponenta, která umožňuje uživatelům přepínat mezi dvěma stavy, obvykle zapnuto a vypnuto. Používá se pro nastavení, která mají binární volbu, jako je povolení nebo zakázání funkcí.
 
 \begin{figure}[H]
   \centering
@@ -196,7 +198,7 @@ Switch je komponenta, která umožňuje uživatelům přepínat mezi dvěma stav
 \end{figure}
 
 \subsection{Table}
-Table je komponenta pro zobrazení strukturovaných dat ve formě tabulky. Tabulky se používají k organizaci informací do řádků a sloupců, což umožňuje snadné srovnání a analýzu dat. Jsou běžně používány v dashboardech, reportech a dalších datově orientovaných aplikacích.
+\emph{Table} je komponenta pro zobrazení strukturovaných dat ve formě tabulky. Tabulky se používají k organizaci informací do řádků a sloupců, což umožňuje snadné srovnání a analýzu dat. Jsou běžně používány v dashboardech, reportech a dalších datově orientovaných aplikacích.
 
 \begin{figure}[H]
   \centering
@@ -208,7 +210,7 @@ Table je komponenta pro zobrazení strukturovaných dat ve formě tabulky. Tabul
 \clearpage
 
 \subsection{Tabs}
-Tabs jsou komponenty, které umožňují uživatelům přepínat mezi různými částmi obsahu na jedné stránce. Tabulky zlepšují organizaci a přehlednost, když je potřeba prezentovat velké množství informací v omezeném prostoru. Každá karta obsahuje jiný obsah, který se zobrazí po kliknutí na záložku.
+\emph{Tabs} jsou komponenty, které umožňují uživatelům přepínat mezi různými částmi obsahu na jedné stránce. \emph{Tabs} zlepšují organizaci a přehlednost, když je potřeba prezentovat velké množství informací v omezeném prostoru. Každá karta obsahuje jiný obsah, který se zobrazí po kliknutí na záložku.
 
 \begin{figure}[H]
   \centering
@@ -218,7 +220,7 @@ Tabs jsou komponenty, které umožňují uživatelům přepínat mezi různými 
 \end{figure}
 
 \subsection{Textarea}
-Textarea je vstupní komponenta, která umožňuje uživatelům zadat víceřádkový text. Používá se v formulářích, kde je potřeba více místa pro text, například v komentářích, poznámkách nebo popisech.
+\emph{Textarea} je vstupní komponenta, která umožňuje uživatelům zadat víceřádkový text. Používá se v formulářích, kde je potřeba více místa pro text, například v komentářích, poznámkách nebo popisech.
 
 \begin{figure}[H]
   \centering
@@ -228,7 +230,7 @@ Textarea je vstupní komponenta, která umožňuje uživatelům zadat víceřád
 \end{figure}
 
 \subsection{Text input}
-Text input je základní vstupní pole, které umožňuje uživatelům zadávat text. Používá se v formulářích pro zadání jednoduchých textových informací, jako jsou jména, e-maily nebo hesla. Text input může mít různé typy, například text, email, password nebo number.
+\emph{Text input} je základní vstupní pole, které umožňuje uživatelům zadávat text. Používá se v formulářích pro zadání jednoduchých textových informací, jako jsou jména, e-maily nebo hesla. \emph{Text input} může mít různé typy, například text, email, password nebo number.
 
 \begin{figure}[H]
   \centering
@@ -238,7 +240,7 @@ Text input je základní vstupní pole, které umožňuje uživatelům zadávat 
 \end{figure}
 
 \subsection{Tooltip}
-Tooltip je komponenta, která poskytuje dodatečné informace o prvku, když na něj uživatel najede myší nebo se na něj jiným způsobem zaměří. Tooltipy se používají ke zlepšení uživatelského zážitku tím, že poskytují kontext nebo vysvětlení bez nutnosti zabírat místo na obrazovce.
+\emph{Tooltip} je komponenta, která poskytuje dodatečné informace o prvku, když na něj uživatel najede myší nebo se na něj jiným způsobem zaměří. \emph{Tooltipy} se používají ke zlepšení uživatelského zážitku tím, že poskytují kontext nebo vysvětlení bez nutnosti zabírat místo na obrazovce.
 
 \begin{figure}[H]
   \centering
@@ -263,27 +265,27 @@ Hlavní přínosy bloků spočívají v jejich schopnosti snižovat redundantní
 
 \subsection{Hero}
 
-Hero sekce je úvodní část stránky, která zaujme návštěvníky a poskytuje hlavní informace nebo klíčové sdělení. Obvykle se nachází v horní části stránky a obsahuje poutavý obrázek nebo video, výrazný nadpis a krátký popis. Je navržena tak, aby upoutala pozornost uživatelů a povzbudila je k dalšímu prozkoumání webu nebo provedení určité akce, například kliknutí na tlačítko s výzvou k akci (CTA).
+\emph{Hero sekce} je úvodní část stránky, která zaujme návštěvníky a poskytuje hlavní informace nebo klíčové sdělení. Obvykle se nachází v horní části stránky a obsahuje poutavý obrázek nebo video, výrazný nadpis a krátký popis. Je navržena tak, aby upoutala pozornost uživatelů a povzbudila je k dalšímu prozkoumání webu nebo provedení určité akce, například kliknutí na tlačítko s výzvou k akci (CTA).
 
 \subsection{Section}
 
-Section je univerzální blok, který rozděluje obsah stránky do logických částí. Každá sekce může mít vlastní obsah, jako jsou texty, obrázky nebo interaktivní prvky, a slouží k organizaci informací na stránce tak, aby byly přehledné a snadno čitelné. Sekce pomáhají strukturovat stránku a usnadňují uživatelům orientaci a nalezení relevantních informací.
+\emph{Section} je univerzální blok, který rozděluje obsah stránky do logických částí. Každá sekce může mít vlastní obsah, jako jsou texty, obrázky nebo interaktivní prvky, a slouží k organizaci informací na stránce tak, aby byly přehledné a snadno čitelné. Sekce pomáhají strukturovat stránku a usnadňují uživatelům orientaci a nalezení relevantních informací.
 
 \subsection{Features}
 
-Features blok slouží k prezentaci hlavních funkcí nebo výhod produktu či služby. Obvykle se skládá z řady ikon nebo obrázků doplněných krátkými popisy, které stručně a jasně vysvětlují, co produkt nebo služba nabízí. Tento blok pomáhá uživatelům rychle pochopit, jaké benefity mohou očekávat, a usnadňuje rozhodování o koupi nebo dalším využití.
+\emph{Features} blok slouží k prezentaci hlavních funkcí nebo výhod produktu či služby. Obvykle se skládá z řady ikon nebo obrázků doplněných krátkými popisy, které stručně a jasně vysvětlují, co produkt nebo služba nabízí. Tento blok pomáhá uživatelům rychle pochopit, jaké benefity mohou očekávat, a usnadňuje rozhodování o koupi nebo dalším využití.
 
 \subsection{References}
 
-References blok je určen k zobrazení referencí, recenzí nebo citací od spokojených zákazníků či partnerů. Tento blok zvyšuje důvěryhodnost a kredibilitu produktu nebo služby tím, že poskytuje sociální důkazy o jeho kvalitě a spolehlivosti. Obsahuje často fotografie, jména a krátké výpovědi od skutečných uživatelů, což pomáhá budovat důvěru u potenciálních zákazníků.
+\emph{References} blok je určen k zobrazení referencí, recenzí nebo citací od spokojených zákazníků či partnerů. Tento blok zvyšuje důvěryhodnost a kredibilitu produktu nebo služby tím, že poskytuje sociální důkazy o jeho kvalitě a spolehlivosti. Obsahuje často fotografie, jména a krátké výpovědi od skutečných uživatelů, což pomáhá budovat důvěru u potenciálních zákazníků.
 
 \subsection{Contact}
 
-Contact blok slouží k zobrazení kontaktních informací a formulářů, které umožňují uživatelům snadno se spojit s provozovatelem webu nebo podpůrným týmem. Tento blok obvykle obsahuje informace jako jméno, telefonní číslo a e-mailová adresa. Může také obsahovat kontaktní formulář, který uživatelům umožňuje rychle zaslat zprávu nebo dotaz přímo z webové stránky.
+\emph{Contact} blok slouží k zobrazení kontaktních informací a formulářů, které umožňují uživatelům snadno se spojit s provozovatelem webu nebo podpůrným týmem. Tento blok obvykle obsahuje informace jako jméno, telefonní číslo a e-mailová adresa. Může také obsahovat kontaktní formulář, který uživatelům umožňuje rychle zaslat zprávu nebo dotaz přímo z webové stránky.
 
 \subsection{Auth}
 
-Auth blok se používá pro autentizaci uživatelů, tedy pro přihlášení, registraci nebo obnovení hesla. Obsahuje formuláře, které uživatelům umožňují zadávat své přihlašovací údaje, vytvářet nové účty nebo obnovit zapomenuté heslo. Tento blok je navržen pro webové aplikace, které vyžadují bezpečný přístup k uživatelským účtům a osobním informacím.
+\emph{Auth} blok se používá pro autentizaci uživatelů, tedy pro přihlášení, registraci nebo obnovení hesla. Obsahuje formuláře, které uživatelům umožňují zadávat své přihlašovací údaje, vytvářet nové účty nebo obnovit zapomenuté heslo. Tento blok je navržen pro webové aplikace, které vyžadují bezpečný přístup k uživatelským účtům a osobním informacím.
 
 \subsection{Blog}
 
@@ -291,15 +293,25 @@ Blog blok slouží k zobrazení seznamu článků nebo příspěvků na blogu. T
 
 \subsection{Header}
 
-Header je horní část webové stránky, která obvykle obsahuje logo, navigační menu a další prvky, jako jsou odkazy na přihlášení, nákupní košík nebo vyhledávací pole. Header je důležitým prvkem každé webové stránky, protože poskytuje uživatelům rychlý přístup k hlavním sekcím webu a usnadňuje navigaci. Důraz na jednoduchost a přehlednost v headeru zlepšuje uživatelskou zkušenost a orientaci.
+\emph{Header} je horní část webové stránky, která obvykle obsahuje logo, navigační menu a další prvky, jako jsou odkazy na přihlášení, nákupní košík nebo vyhledávací pole. \emph{Header} je důležitým prvkem každé webové stránky, protože poskytuje uživatelům rychlý přístup k hlavním sekcím webu a usnadňuje navigaci. Důraz na jednoduchost a přehlednost v \emph{headeru} zlepšuje uživatelskou zkušenost a orientaci.
 
 \section{CLI}
-Pro usnadnění práce s UI knihovnou je potřeba vyvinout CLI, které pomůže s inicializací a přidávání komponent do projektů.
+Vzhledem k tomu, že se nejedná o klasickou knihovnu s principem balíčkování, není možné využít package manažerů pro instalaci. Nabízí se tedy dvě možnosti.
+
+\begin{enumerate}
+  \item Manuální kopírování souborů do projektu.
+  \item Použití CLI, které bude zajišťovat inicializaci a přidávání komponent do projektů.
+\end{enumerate}
+
+Manuální kopírování souborů do projektu je sice možné, ale zdlouhavé a náchylné k chybám. Na druhou stranu je tato možnost velmi jednoduchá a nevyžaduje žádné další kroky. Ideální je tedy kombinace obou možností.
+Pokud vývojář z nějakých důvodů nebude chtít použít CLI, může si soubory zkopírovat z Githubu a ručně je přidat do projektu. Odkazy na Github budou dostupné v dokumentaci.
+
+Pro usnadnění práce s UI knihovnou je tedy potřeba vyvinout CLI, které pomůže s inicializací a přidávání komponent do projektů.
 
 \subsection{Inicializace}
 Inicializace knihovny prostřednictvím CLI zajišťuje, že jsou přidány všechny závislosti a další potřebné soubory jsou připraveny k použití ihned po vytvoření nového projektu. Příkaz pro inicializaci může vypadat například takto \mintinline{console}|npx @v-moravec/ui init|. V rámci tohoto příkazu je potřeba zkontrolovat, zda již soubory neexistují. Pokud by existovaly, měl by uživatel dostat možnost zvolit, zda chce přepsat stávající soubory nebo pokračovat bez změn. V případě chybějících souborů se automaticky vytvoří nové.
 
-Získání souborů a závislotí by mělo být automatizováno, aby se zabránilo chybám a zjednodušil se vývoj knihovny. Nejjednodušší způsob je soubory vytáhnout do API dokumentace, odkud je možné s nimi pracovat na úrovní CLI. Pro tuto automatizaci je možné využít vlastních Nuxt modulů. Jako inspiraci lze použít modul, který využívá knihovna NuxtUI. \cite{NuxtUISourceCodeModule}
+Získání souborů a závislostí by mělo být automatizováno, aby se zabránilo chybám a zjednodušil se vývoj knihovny. Nejjednodušší způsob je soubory zpřístupnit v rámci API části dokumentace (webové aplikace), odkud je možné s nimi pracovat na úrovní CLI. Jak toto funguje bude popsáno v kapitole \ref{ch:implementation}. Pro tuto automatizaci je možné využít vlastních Nuxt modulů. Jako inspiraci lze použít modul, který využívá knihovna NuxtUI. \cite{NuxtUISourceCodeModule}
 
 \subsection{Přidání komponent}
 Přidání komponent a bloků využije stejného principu jako inicializace projektu. Příkaz pro přidání komponenty může vypadat například takto:\\
@@ -308,7 +320,7 @@ Přidání komponent a bloků využije stejného principu jako inicializace proj
 
 Při přidání komponenty je potřeba zkontrolovat, zda již soubory neexistují. Pokud by existovaly, měl by uživatel dostat možnost zvolit, zda chce přepsat stávající soubory nebo pokračovat bez změn. V případě chybějících souborů se automaticky vytvoří nové.
 
-Z hlediska zdrojového kódu komponent a bloků bude potřeba více modulů, které na API vystaví všechny potřebné informace. Také bude potřeba v rámci každého souboru zjistit jeho závislosti a to na externích knihovnách, komponentách v rámci knihovny a dalších souborech, jako například composables. Toho je možné dosáhnout pomocí pattern matchingu.
+Z hlediska zdrojového kódu komponent a bloků bude potřeba více modulů, které na API vystaví všechny potřebné informace. Také bude potřeba v rámci každého souboru zjistit jeho závislosti a to na externích knihovnách, komponentách v rámci knihovny a dalších souborech, jako například composables. Toho je možné dosáhnout pomocí \emph{pattern matchingu}.
 
 \subsection{Publikace balíčku}
 Jak bylo popsáno v sekci o technologiích, pro správu verzí balíčku se používá nástroj Changesets. Workflow pak vypadá následovně:
