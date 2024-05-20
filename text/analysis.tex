@@ -197,7 +197,7 @@ JavaScript je dynamický skriptovací jazyk, který byl původně navržen pro m
 \end{description}
 
 \subsection{TypeScript}
-TypeScript je nadstavba JavaScriptu vyvinutá společností Microsoft, která přidává statickou typovou kontrolu a další funkce zaměřené na zlepšení organizace kódu a jeho udržitelnosti. TypeScript je plně kompatibilní s JavaScriptem, což znamená, že jakýkoli platný JavaScriptový kód je také platným Typescriptovým kódem. \cite{TypeScript}
+TypeScript je nadstavba JavaScriptu vyvinutá společností Microsoft, která přidává statickou typovou kontrolu a další funkce zaměřené na zlepšení organizace kódu a jeho udržitelnosti. TypeScript je plně kompatibilní s JavaScriptem, což znamená, že jakýkoli platný JavaScriptový kód je také platným TypeScriptovým kódem. \cite{TypeScript}
 
 \subsubsection{Výhody}
 
@@ -210,13 +210,13 @@ TypeScript je nadstavba JavaScriptu vyvinutá společností Microsoft, která p�
 \subsubsection{Nevýhody}
 
 \begin{description}
-    \item[Náročnější na naučení] Přechod a následné používání Typescriptu může vyžadovat dodatečnou práci v podobě přidání typových anotací a konfigurace. Také může být pro nové uživatele náročnější se naučit nové koncepty a syntaxi.
+    \item[Náročnější na naučení] Přechod a následné používání TypeScriptu může vyžadovat dodatečnou práci v podobě přidání typových anotací a konfigurace. Také může být pro nové uživatele náročnější se naučit nové koncepty a syntaxi.
 \end{description}
 
 \subsection{Porovnání}
-V blízké minulosti se některé velké \emph{open source} projekty, jako je například Svelte nebo Drizzle, rozhodly přejít z Typescriptu zpět na JavaScript. Tento trend vyvolal diskuzi o tom, který jazyk je pro vývoj knihoven lepší. Je několik klíčových faktorů, které je třeba zvážit při rozhodování mezi JavaScriptem a Typescriptem.
+V nedávné minulosti se některé velké \emph{open source} projekty, jako je například Svelte nebo Drizzle, rozhodly přejít z TypeScriptu zpět na JavaScript. Tento trend vyvolal diskuzi o tom, který jazyk je pro vývoj knihoven lepší. Je několik klíčových faktorů, které je třeba zvážit při rozhodování mezi JavaScriptem a TypeScriptem.
 
-Projekty, které přešly z Typescriptu na JavaScript stále používají JSDoc definice pro generování typů. Všechny tyto projekty byly velké, složité a potřebovaly vyřešit problémy s definicí typů, které v rámci takto velkých projektů mohou vyžadovat velké množství práce. \cite{DitchingTypescript}
+Projekty, které přešly z TypeScriptu na JavaScript stále používají JSDoc definice pro generování typů. Všechny tyto projekty byly velké, složité a potřebovaly vyřešit problémy s definicí typů, které v rámci takto velkých projektů mohou vyžadovat velké množství práce. \cite{DitchingTypescript}
 
 \subsubsection{Výhody přechodu na JSDoc}
 
@@ -254,8 +254,9 @@ function sum(a, b, retArr) {
 
 Na druhou stranu pro koncové aplikace je TypeScript stále lepší volbou, protože poskytuje výhody statické typové kontroly, které mohou výrazně snížit počet chyb a zvýšit kvalitu kódu. \cite{FireshipTypescript}
 
-Vzhledem k tomu, že většina kódu se dostane přímo do rukou vývojářů, bude lepší použít TypeScript, se kterým se lépe pracuje v koncových aplikacích. Pro knihovny, které jsou určeny k širokému použití jako balíčky, může být lepší použití JavaScriptu, protože to zjednoduší vývoj knihovny z hlediska typování atd. a zmenší velikost balíčků. Pro použití kolekce tedy bude povinná závislost na Typescriptu.
+Vzhledem k tomu, že většina kódu se dostane přímo do rukou vývojářů, bude lepší použít TypeScript, se kterým se lépe pracuje v koncových aplikacích. Pro knihovny, které jsou určeny k širokému použití jako balíčky, může být lepší použití JavaScriptu, protože to zjednoduší vývoj knihovny z hlediska typování atd. a zmenší velikost balíčků. Pro použití kolekce tedy bude povinná závislost na TypeScriptu.
 
+Může se zdát, že jako ideální možnost se nabízí použití JavaScriptu v kombinaci s JSDoc a vygenerováním typů do balíčku (např. \emph{@types/v-moravec-ui}). Bohužel toto řešení není možné bez nutnosti udržovat dvojnásobek zdrojového kódu, protože integrace do koncových aplikací musí být v TypeScriptu. Kód s JSDoc komentáři by byl nedostatečný pro využití všech výhod TypeScriptu.
 
 \section{Závislosti na knihovnách třetích stran}
 Využití závislostí třetích stran v procesu vývoje komponent může přinést řadu výhod, zvláště když je důraz kladen na efektivitu a dostupnost. Knihovny poskytující přístupné UI prvky jsou zajímavou možností, která umožňuje urychlit proces implementace bez ztráty kontroly nad funkcionalitou a stylováním. Pro React je zajímavá knihovna Radix UI, avšak její Vue verze je spravována komunitou a nedosahuje takové kvality jako ta původní. Knihovna, která je dostupná pro oba \emph{frameworky} se jmenuje Headless UI.
@@ -267,7 +268,7 @@ Aktualizace využitých knihoven mají pak vývojáři na starosti sami. Na jedn
 \section{Závěr}
 Tato kapitola poskytla komplexní přehled stávajících UI knihoven a technologií, které ovlivňují vývoj a implementaci komponent. Důkladné srovnání přístupů založených na balíčkování a vlastnictví kódu odhalilo výhody a nevýhody každého z nich. Zvážení aspektů jako udržovatelnost, aktualizace a flexibilita vedlo k rozhodnutí o preferenci přístupu s vlastnictvím kódu pro maximální přizpůsobení a kontrolu.
 
-Dále bylo provedeno porovnání programovacích jazyků TypeScript a JavaScript, přičemž byl zdůrazněn přínos statické typové kontroly Typescriptu pro větší projekty a jeho dopad na kvalitu kódu. Nakonec, analýza závislostí na knihovnách třetích stran, jako je Headless UI, poukázala na potenciál pro urychlení vývoje a zároveň zdůraznila nutnost zachování kontroly nad funkcemi a stylováním.
+Dále bylo provedeno porovnání programovacích jazyků TypeScript a JavaScript, přičemž byl zdůrazněn přínos statické typové kontroly TypeScriptu pro větší projekty a jeho dopad na kvalitu kódu. Nakonec, analýza závislostí na knihovnách třetích stran, jako je Headless UI, poukázala na potenciál pro urychlení vývoje a zároveň zdůraznila nutnost zachování kontroly nad funkcemi a stylováním.
 
 Získané poznatky z analýzy poskytují pevný základ pro návrh a implementaci sbírky znovupoužitelných UI komponent, která bude efektivní, flexibilní a přizpůsobitelná specifickým potřebám vývojářů.
 

@@ -27,9 +27,9 @@ Dokumentace bude rozdělena do dvou hlavních sekcí: \emph{Getting Started} a \
 Stránka dokumentace pro každou konkrétní komponentu bude jasně strukturovaná a bude poskytovat ucelené informace, které usnadní její použití. Na začátku stránky bude uveden název komponenty a pod ním krátký popis, který objasňuje, k čemu komponenta slouží. Bude následovat sekce s ukázkou komponenty, doplněná o příslušný zdrojový kód, který bude ilustrovat, jak lze komponentu použít. Návod k instalaci bude popisovat, jak komponentu přidat do projektu, ať už pomocí CLI nástroje nebo prostřednictvím manuálního kopírování kódu. Na stránce vývojáři naleznou také seznam \emph{props} a \emph{slotů}, které umožňují přizpůsobit komponentu specifickým potřebám. Stránka může dále obsahovat další poznámky a varování ohledně specifik komponenty, jako jsou potenciální chyby, omezení, nebo doporučené postupy.
 
 \section{Figma Kit}
-Figma Kit je vyvinut s cílem poskytnout designérům a vývojářům snadno použitelnou sadu komponent, které jim umožní efektivně navrhovat a prototypovat aplikace. Kit obsahuje komponenty UI kolekce, přesně tak, jak jsou definovány ve finální implementaci, což zajišťuje, že designy jsou plně kompatibilní s konečnou implementací. Připravené jsou komponenty jako tlačítka, inputy, plovoucí prvky a mnoho dalšího, což designérům umožňuje sestavit uživatelské rozhraní rychle a s vysokou mírou přesnosti.
+Figma Kit bude vyvinut s cílem poskytnout designérům a vývojářům snadno použitelnou sadu komponent, které jim umožní efektivně navrhovat a prototypovat aplikace. Kit bude obsahovat komponenty UI kolekce, přesně tak, jak jsou definovány ve finální implementaci, což zajišťuje, že designy jsou plně kompatibilní s konečnou implementací. Připravené budou komponenty jako tlačítka, inputy, plovoucí prvky a mnoho dalšího, což designérům umožňuje sestavit uživatelské rozhraní rychle a s vysokou mírou přesnosti.
 
-Pro vývojáře je pak snadné převést designy vytvořené v Figmě do kódu, protože mohou snadno identifikovat, které komponenty mají být použity. Díky definovaným proměnným lze snadno přizpůsobit barvy, velikosti a další vlastnosti komponent, které vývojáři mohou specifikovat v rámci projektu.
+Pro vývojáře pak bude snadné převést designy vytvořené v Figmě do kódu, protože mohou snadno identifikovat, které komponenty mají být použity. Díky definovaným proměnným lze snadno přizpůsobit barvy, velikosti a další vlastnosti komponent, které vývojáři mohou specifikovat v rámci projektu.
 
 U každé komponenty se bude nacházet odkaz do dokumentace, kde mohou jak designéři, tak vývojáři najít podrobné informace o tom, k čemu komponenta je a jaké jsou její možnosti.
 
@@ -311,7 +311,7 @@ Pro usnadnění práce s UI knihovnou je tedy potřeba vyvinout CLI, které pom�
 \subsection{Inicializace}
 Inicializace knihovny prostřednictvím CLI zajišťuje, že jsou přidány všechny závislosti a další potřebné soubory jsou připraveny k použití ihned po vytvoření nového projektu. Příkaz pro inicializaci může vypadat například takto \mintinline{console}|npx @v-moravec/ui init|. V rámci tohoto příkazu je potřeba zkontrolovat, zda již soubory neexistují. Pokud by existovaly, měl by uživatel dostat možnost zvolit, zda chce přepsat stávající soubory nebo pokračovat bez změn. V případě chybějících souborů se automaticky vytvoří nové.
 
-Získání souborů a závislostí by mělo být automatizováno, aby se zabránilo chybám a zjednodušil se vývoj knihovny. Nejjednodušší způsob je soubory zpřístupnit v rámci API části dokumentace (webové aplikace), odkud je možné s nimi pracovat na úrovní CLI. Jak toto funguje bude popsáno v kapitole \ref{ch:implementation}. Pro tuto automatizaci je možné využít vlastních Nuxt modulů. Jako inspiraci lze použít modul, který využívá knihovna NuxtUI. \cite{NuxtUISourceCodeModule}
+Získání souborů a závislostí by mělo být automatizováno, aby se zabránilo chybám a zjednodušil se vývoj knihovny. Nejjednodušší způsob je soubory zpřístupnit v rámci API části dokumentace (webové aplikace), odkud je možné s nimi pracovat na úrovní CLI. Jak toto funguje bude popsáno v kapitole \ref{ch:implementation}. Pro tuto automatizaci je možné využít vlastních Nuxt modulů. Jako inspiraci lze použít modul, který využívá knihovna Nuxt UI. \cite{NuxtUISourceCodeModule}
 
 \subsection{Přidání komponent}
 Přidání komponent a bloků využije stejného principu jako inicializace projektu. Příkaz pro přidání komponenty může vypadat například takto:\\
@@ -333,7 +333,7 @@ Jak bylo popsáno v sekci o technologiích, pro správu verzí balíčku se pou�
   \item Publikace nové verze balíčku.
 \end{enumerate}
 
-Díky této automatizaci je možné rychle a bezpečně publikovat nové verze balíčku, aniž by bylo nutné manuálně upravovat potřebné soubory.
+Díky této automatizaci bude možné rychle a bezpečně publikovat nové verze balíčku, aniž by bylo nutné manuálně upravovat potřebné soubory.
 
 \section{Závěr}
 V této kapitole byly popsány kroky a procesy vedoucí k navržení sbírky znovupoužitelných Nuxt komponent. Byly identifikovány a zdokumentovány prvky, které ovlivňují design a implementaci UI komponent.

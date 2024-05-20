@@ -75,7 +75,7 @@ Každý ze scénářů byl navržen tak, aby testoval specifické aspekty kolekc
   \item Použitelnost sidebaru: Respondent nevěděl, jak do sidebaru přidat svůj obsah.
   \item Typy dat z komponent: Bylo zjištěno, že export typů dat z komponent je důležitý pro jejich snadné použití, avšak u některých komponent chyběl.
   \item \emph{Container} komponenta: Absence komponenty pro kontejner ztížila respondentovi správu layoutu aplikací.
-  \item Typescript závislost: Objevil se \emph{error}, kdy v konzoli bylo zobrazeno, že chybí Typescript závislosti. Respondent byl nucen ručně nainstalovat chybějící balíčky, ale vzhledem k jasné zprávě v konzoli to nebyl velký problém. Prozatím není nutné přidávat závislost automaticky, pokud by se problém opakoval, mohlo by to být užitečné.
+  \item TypeScript závislost: Objevil se \emph{error}, kdy v konzoli bylo zobrazeno, že chybí TypeScript závislosti. Respondent byl nucen ručně nainstalovat chybějící balíčky, ale vzhledem k jasné zprávě v konzoli to nebyl velký problém. Prozatím není nutné přidávat závislost automaticky, pokud by se problém opakoval, mohlo by to být užitečné.
   \item Carousel a \emph{hot reload}: Upozornění na \emph{hot reload} pro \emph{carousel} komponentu bylo považováno za užitečné, protože pomáhá v případě, že dojde k dynamickým změnám obsahu.
   \item Odstranění odkazů: Testování odhalilo, že přítomnost odkazů v ukázkách (např. blocích) může vést k záměně s dokumentací.
   \item Rozdíl mezi ukázkou a implementací komponenty: Respondent byl zmaten při rozhodování, kdy použít ukázkový kód a kdy se jedná o kód komponenty.
@@ -131,7 +131,7 @@ Každý ze scénářů byl navržen tak, aby testoval specifické aspekty kolekc
 \paragraph{Nalezené problémy}
 \begin{enumerate}
   \item Hlášky o použití u zdrojových kódu někdy nejsou vidět, protože jsou pod dlouhým kódem.
-  \item Závislost na Typescriptu by měla být automaticky přidána, protože jinak byl respondent zmaten a myslel si, že chyba je v kódu komponenty.
+  \item Závislost na TypeScriptu by měla být automaticky přidána, protože jinak byl respondent zmaten a myslel si, že chyba je v kódu komponenty.
   \item Je nezvyklé vzít si celou sekci hotovou - je pro něj automatické si vytvořit vlastní komponentu.
   \item Respondent nenavšívil stránku s bloky, protože se proklikával přímo na konkrétní stránky z dokumentace.
 \end{enumerate}
@@ -145,7 +145,7 @@ Každý ze scénářů byl navržen tak, aby testoval specifické aspekty kolekc
 \paragraph{Provedené změny}
 \begin{enumerate}
   \item Přesunutí informací nad zdrojový kód v dokumentaci.
-  \item Přidání poznámky o nutnosti instalace Typescript závislostí u komponenty Carousel.
+  \item Přidání poznámky o nutnosti instalace TypeScript závislostí u komponenty Carousel.
   \item Přidání informací o blocích na \emph{landing page}.
 \end{enumerate}
 
@@ -154,6 +154,6 @@ Testování sbírky znovupoužitelných Nuxt komponent přineslo cenné poznatky
 
 Výsledky testování ukázaly, že jednoduchá rozšiřitelnost a flexibilita komponent jsou důležitými prvky kolekce, které vývojáři ocenili. Umožňují rychlou integraci a usnadňují vytvoření webových stránek s použitím komponent a bloků.
 
-Na základě získané zpětné vazby byly provedeny některé úpravy, jako například přidání informací o volání CLI z kořenového adresáře projektu, zvýraznění bloků v dokumentaci, a přidání poznámky o nutnosti instalace Typescript závislostí u některých komponent.
+Na základě získané zpětné vazby byly provedeny některé úpravy, jako například přidání informací o volání CLI z kořenového adresáře projektu, zvýraznění bloků v dokumentaci, a přidání poznámky o nutnosti instalace TypeScript závislostí u některých komponent.
 
 Tato testovací fáze poskytla informace pro další vývoj a zlepšování dokumentace a uživatelské přívětivosti kolekce. Bude důležité pokračovat v implementaci doporučených změn a sbírat další zpětnou vazbu, aby se zajistilo, že sbírka komponent zůstane užitečným a efektivním nástrojem.

@@ -231,6 +231,9 @@ V budoucnu je možné, že nebude potřeba používat žádné knihovny díky na
 \subsubsection{Embla Carousel}
 Jedna z dalších komponent, která je složitá na implementaci je \emph{carousel}. Pro tento účel byla použita knihovna Embla Carousel. Byl vytvořen \emph{wrapper} nad jejím API v rámci několika komponent, které je možné dodatečně stylovat a ovlivňovat jejich chování.
 
+\subsubsection{Headless UI}
+Jak bylo popsáno v dřívějších kapitolách, pro implementaci některých prvků byla použita knihovna Headless UI. Více informací o této knihovně je v kapitolách Analýza a Technologie.
+
 \clearpage
 
 \section{Kód komponent a bloků}
@@ -271,13 +274,6 @@ Také bylo využito dalšího \emph{hooku} \mintinline{javascript}|nuxt.hook('vi
     \label{lst:module}
     \begin{code}
 const code = await fsp.readFile(component.shortPath, 'utf-8')
-
-function removeDuplicates(arr?: string[]) {
-    if (!arr) {
-    return undefined
-    }
-    return arr.filter((v, i) => arr.indexOf(v) === i)
-}
 
 components[component.pascalName] = {
     code,
