@@ -41,7 +41,7 @@ U každé komponenty se bude nacházet odkaz do dokumentace, kde mohou jak desig
 \clearpage
 
 \section{Komponenty}
-Výběr těchto komponent byl založen na jejich základní funkčnosti a častém využití ve webových aplikacích. Každá z těchto komponent přináší konkrétní užitečné vlastnosti, které zlepšují uživatelský zážitek a zjednodušují vývojový proces. Tento soubor základních komponent vytváří pevný základ pro další rozšiřování sbírky. V budoucnu bude sbírka doplněna o další komponenty, které budou reagovat na specifické potřeby a požadavky vývojářů.
+Výběr těchto komponent je založen na jejich základní funkčnosti a častém využití ve webových aplikacích. Každá z těchto komponent přináší konkrétní užitečné vlastnosti, které zlepšují uživatelský zážitek a zjednodušují vývojový proces. Tento soubor základních komponent vytváří pevný základ pro další rozšiřování sbírky. V budoucnu bude sbírka doplněna o další komponenty, které budou reagovat na specifické potřeby a požadavky vývojářů.
 
 \subsection{Accordion}
 \emph{Accordion} je komponenta určená k zobrazení a skrytí obsahu v rozbalovacích sekcích. Umožňuje uživatelům zobrazit pouze relevantní část informací a zbytek skrýt, čímž šetří místo na obrazovce a zvyšuje přehlednost. \emph{Accordion} se často používá pro často kladené otázky (FAQ) nebo detaily produktů.
@@ -259,8 +259,8 @@ Bloky značně zlepšují efektivitu vývoje tím, že standardizují často pou
 Hlavní přínosy bloků spočívají v jejich schopnosti snižovat redundantní kód a zvyšovat znovupoužitelnost komponent napříč projekty. Díky konzistentní implementaci jednotlivých bloků mohou vývojáři efektivně reagovat na nové požadavky nebo změny v designu bez rozsáhlých úprav celé aplikace.
 
 \begin{figure}[H]
-  \includegraphics[width=\textwidth]{images/hero-block}
-  \caption{Blok na úvodní stránku} \label{picture:hero-block}
+  \includegraphics[width=\textwidth]{images/block-contact}
+  \caption{Blok s kontaktním formulářem} \label{picture:block-contact}
 \end{figure}
 
 \subsection{Hero}
@@ -323,7 +323,7 @@ Při přidání komponenty je potřeba zkontrolovat, zda již soubory neexistuj�
 Z hlediska zdrojového kódu komponent a bloků bude potřeba více modulů, které na API vystaví všechny potřebné informace. Také bude potřeba v rámci každého souboru zjistit jeho závislosti a to na externích knihovnách, komponentách v rámci knihovny a dalších souborech, jako například composables. Toho je možné dosáhnout pomocí \emph{pattern matchingu}.
 
 \subsection{Publikace balíčku}
-Jak bylo popsáno v sekci o technologiích, pro správu verzí balíčku se používá nástroj Changesets. Workflow pak vypadá následovně:
+Jak bylo popsáno v sekci o technologiích, pro správu verzí balíčku se používá nástroj Changesets. Workflow pak bude vypadat následovně:
 
 \begin{enumerate}
   \item Vytvoření změn v kódu.

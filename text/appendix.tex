@@ -1,41 +1,48 @@
 \chapter{Snímky dokumentace}
 
-\section{Úvodní obrazovka}
-
-\begin{figure}[H]
-  \includegraphics[width=\textwidth]{images/main-page}
-  \caption{Úvodní obrazovka} \label{picture:documentation:main-page}
+\begin{figure}[h]
+  \includegraphics[width=\textwidth]{images/landing-page}
+  \caption{Úvodní obrazovka} \label{picture:documentation:landing-page}
 \end{figure}
 
-\begin{figure}[H]
-  \centering
-  \subfloat[Tmavá verze]{\includegraphics[width=0.3\textwidth]{images/main-page-dark}\label{picture:documentation:main-page-dark}}
-  \subfloat[Modrá verze]{\includegraphics[width=0.3\textwidth]{images/main-page-colored}\label{picture:documentation:main-page-colored}}
-  \caption{Stylování}
+\begin{figure}[h]
+  \includegraphics[width=\textwidth]{images/landing-page-blue}
+  \caption{Úvodní obrazovka - modrá verze} \label{picture:documentation:landing-page-blue}
 \end{figure}
 
-\section{Komponenty}
+\begin{figure}[h]
+  \includegraphics[width=\textwidth]{images/landing-page-dark}
+  \caption{Úvodní obrazovka - tmavá verze} \label{picture:documentation:landing-page-dark}
+\end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h]
+  \includegraphics[width=\textwidth]{images/installation}
+  \caption{Instalace} \label{picture:documentation:installation}
+\end{figure}
+
+\begin{figure}[h]
   \includegraphics[width=\textwidth]{images/component-preview}
   \caption{Zobrazení komponenty} \label{picture:documentation:component-preview}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h]
   \includegraphics[width=\textwidth]{images/component-code}
   \caption{Kód komponenty} \label{picture:documentation:component-code}
 \end{figure}
 
-\section{Elementy}
+\begin{figure}[h]
+  \includegraphics[width=\textwidth]{images/blocks}
+  \caption{Seznam bloků} \label{picture:documentation:blocks}
+\end{figure}
 
-\begin{figure}[H]
-  \includegraphics[width=\textwidth]{images/element}
-  \caption{Element složený z komponent} \label{picture:documentation:element}
+\begin{figure}[h]
+  \includegraphics[width=\textwidth]{images/block-contact-docs}
+  \caption{Blok kontaktní formulář} \label{picture:documentation:block-contact-docs}
 \end{figure}
 
 \chapter{Ukázky kódu}
 
-\begin{listing}[H]
+\begin{listing}[h]
   \caption{Vytvoření endpointu pro získání kódu komponent}
   \label{lst:link-to-endpoint}
   \begin{code}
@@ -53,7 +60,7 @@ addServerHandler({
 \end{code}
 \end{listing}
 
-\begin{listing}[H]
+\begin{listing}[h]
   \caption{Endpoint pro získání kódu komponent}
   \label{lst:code-example-endpoint}
   \begin{code}
@@ -79,7 +86,7 @@ export default defineEventHandler((event) => {
 \end{code}
 \end{listing}
 
-\begin{listing}[H]
+\begin{listing}[h]
   \caption{Transformace dat komponent a bloků pro využití v rámci CLI}
   \label{lst:cli-data-transform}
   \begin{code}
@@ -134,7 +141,7 @@ components[component.pascalName] = {
 \end{code}
 \end{listing}
 
-\begin{listing}[H]
+\begin{listing}[h]
   \caption{Komponenta pro zvýraznění kódu}
   \label{lst:code-highlighter}
   \begin{code}[html]
